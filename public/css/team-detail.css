@@ -1,0 +1,71 @@
+.team-tag {
+    margin-bottom: 25px;
+    padding: 16px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    height: 150px;
+}
+
+.team-banner {
+    /* background-image: url(../img/bg-02.jpg); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+}
+
+.team-banner__logo img {
+    height: 100px;
+}
+
+.team-banner .team-banner__info p.subtitle,
+.team-banner .team-banner__info p.label {
+    color: #fff;
+}
+
+.team-banner__info {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.team-banner__uni-name {
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+}
+
+.team-manager__img img,
+.team-member__img img {
+    border-radius: 50%;
+    height: 100px;
+}
+
+.team-manager__role,
+.team-manager__contact {
+    color: #646464;
+}
+
+.team-member__role span {
+    padding-right: 10px;
+}
+
+.team-manager__fullname,
+.team-member__fullname,
+.team-member__role-title {
+    font-weight: bold !important;
+}
+
+.team-member__height,
+.team-member__weight {
+    color: #646464;
+}
+
+.team-member__shirtnum {
+    color: #bbbbbb;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 2.5px;
+    -webkit-text-stroke-color: #bbbbbb;
+    /* color: #bbbbbb; */
+}

@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap");
+
+:root {
+    --dark-body: #4d4c5a;
+    --dark-main: #141529;
+    --dark-second: #79788c;
+    --dark-hover: #323048;
+    --dark-text: #f8fbff;
+
+    --light-body: #f3f8fe;
+    --light-main: #fdfdfd;
+    --light-second: #c3c2c8;
+    --light-hover: #edf0f5;
+    --light-text: #151426;
+
+    /* --green-second:  */
+    --green: #27b461;
+    --white: #fff;
+
+    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    --font-family: cursive;
+}
+
+.dark {
+    --bg-body: var(--dark-body);
+    --bg-main: var(--dark-main);
+    --bg-second: var(--dark-second);
+    --color-hover: var(--dark-hover);
+    --color-txt: var(--dark-text);
+}
+
+.light {
+    --bg-body: var(--light-body);
+    --bg-main: var(--light-main);
+    --bg-second: var(--light-second);
+    --color-hover: var(--light-hover);
+    --color-txt: var(--light-text);
+}
+
+/* * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-family);
+    background-color: var(--bg-body);
+}  */
+
+* {
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    /* overflow: hidden; */
+    background-color: #f3f4f7 !important;
+}
+
+html {
+    font-size: 62.5% !important;
+}
+
+ul,
+li {
+    list-style: none !important;
+}
+
+a {
+    text-decoration: none !important;
+    /* color: #007330 !important; */
+}
+
+h1 {
+    font-size: 4.8rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 4rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px;
+}
+
+h3 {
+    font-size: 3.2rem !important;
+    font-weight: 600 !important;
+}
+
+h4 {
+    font-size: 2.4rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.25px;
+}
+
+.subtitle {
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+}
+
+.label {
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+}
+
+p {
+    font-size: 1.2rem !important;
+    /* align-self: center; */
+}
+
+span {
+    font-size: 1.2rem !important;
+    margin-bottom: 1rem !important;
+    align-self: center;
+}
+
+/* i {
+    margin-bottom: 1rem !important;
+} */

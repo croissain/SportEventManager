@@ -1,0 +1,161 @@
+/* Navbar */
+/* .navbar-nav > .active > a {
+    color: #27b461 !important;
+} */
+
+.nav-link:hover {
+    color: #5d9b77 !important;
+}
+
+.nav-item .dropdown-item {
+    font-size: 1.2rem;
+    color: #79788c;
+}
+
+.nav-item .dropdown-item i {
+    margin-right: 0.5rem;
+}
+/* /Navbar */
+
+/* Sidebar */
+.sidebar-toggle {
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background-color: #fdfefe;
+    transition: all 0.3s ease;
+}
+
+.sidebar.active {
+    width: 220px;
+}
+
+.sidebar ul {
+    padding-left: 30px;
+    margin-top: 20px;
+    list-style: none;
+}
+
+.sidebar ul li {
+    position: relative;
+    height: 50px;
+    width: 100%;
+}
+
+.sidebar i {
+    margin-bottom: 1rem !important;
+}
+
+.sidebar ul li a {
+    color: #c0c0c0;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .links-name {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.sidebar.active .links-name {
+    opacity: 1;
+}
+
+.sidebar ul li:not(.active) a:hover {
+    color: #9cb4a6;
+}
+
+.sidebar .line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 10px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: #27b461;
+    transform: translateX(-6px);
+    transition: all 0.2s ease;
+}
+
+.sidebar ul li a i {
+    height: 50px;
+    min-width: 30px;
+    line-height: 50px;
+}
+
+.sidebar-toggle,
+.sidebar-options {
+    margin-bottom: 20px;
+}
+
+.sidebar-tab.active a,
+.sport-tab.active a {
+    color: #27b461;
+}
+
+.sidebar-icon {
+    font-size: 1.4rem;
+}
+
+#wrapper {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 80px);
+    left: 80px;
+    transition: all 0.3s ease;
+}
+
+.sidebar.active ~ #wrapper {
+    width: calc(100% - 220px);
+    left: 220px;
+}
+
+/* Avatar */
+
+.user-avatar {
+    max-width: 40px;
+    border-radius: 50%;
+}
+
+.user-name,
+.user-role {
+    margin-bottom: 0;
+}
+
+.user-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #646464;
+}
+
+.user-role {
+    font-size: 1.2rem;
+    color: #9b9b9b;
+}
+
+/* /Avatar */
+
+
+
+
+@media (max-width: 767.98px) {
+    .sidebar{
+        display: none;
+    }
+
+    #wrapper {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+    }
+}

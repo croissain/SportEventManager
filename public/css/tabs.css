@@ -1,0 +1,330 @@
+/* Start tab */
+.start-tab {
+    width: 100%;
+    height: 88vh;
+    margin-bottom: 25px;
+    padding: 35px !important;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.start-tab__label {
+    color:#007330;
+}
+
+.live-match__match {
+    justify-content: space-between;
+}
+
+.live-match__logo,
+.team-item__logo-img,
+.best-player-item-img,
+.match__logo {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.team-item__logo-img,
+.best-player-item-img,
+.match__logo {
+    margin-right: 1rem;
+}
+
+.team-item__name-text {
+    overflow: hidden;
+    white-space: nowrap; /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+/* /Start tab */
+
+/* Middle tab */
+
+.banner {
+    position: relative;
+    height: 250px;
+    /* padding: 30px; */
+    background-color: #007330;
+    border-radius: 15px;
+    color: #f3f4f7;
+    overflow: hidden;
+}
+
+.banner-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-left: 25px;
+    z-index: 99;
+}
+
+.bg-deco {
+    position: absolute;
+    top: 0;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: #007b34;
+    left: 30%;
+}
+
+.banner-btn {
+    padding: 8px 24px !important;
+    border-radius: 50px !important;
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
+    color: #007330 !important;
+    position: inherit;
+    bottom: 25px;
+    right: 25px;
+    /* margin: 0 25px 25px; */
+}
+
+.banner-btn i {
+    padding-left: 15px;
+}
+
+.filter-tag button,
+.filter-tag a {
+    color: #3b3b3b;
+    margin-bottom: 1rem !important;
+}
+
+.search-bar {
+    margin-right: 2rem !important;
+}
+
+.search-bar .search-box {
+    width: 100% !important;
+}
+
+.form-control {
+    border-radius: 0 !important;
+    border: 1px solid #ebebeb !important;
+    padding: 0.5rem !important;
+    font-size: 1.2rem !important;
+    padding-left: 15px !important;
+    color: #646464 !important;
+    background-color: #fff !important;
+    height: 50px !important;
+    margin-bottom: 1rem !important;
+    border-radius: 50px !important;
+    width: 150px !important;
+    height: 40px !important;
+}
+
+.filter-tag > * {
+    margin: 0 0.5rem;
+}
+
+.dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20%);
+    transition: all 0.5s;
+}
+
+.dropdown .btn {
+    font-size: 1.2rem !important;
+    background-color: #fff !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.matches-list {
+    padding: 0;
+}
+
+.match-item {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+/* .match-item span {
+    margin: 0 0.5rem;
+} */
+
+/* .match__match-left,
+.match__match-right {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+} */
+
+.match-item__match-left {
+    margin-right: 15px;
+}
+
+.match-item__match-right {
+    margin-left: 15px;
+}
+
+.match-item__info {
+    justify-content: flex-end;
+    margin: 0 2.5rem;
+}
+
+.match-item__time,
+.match-item__location {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 0.5rem;
+}
+
+.match-item__icon {
+    color: #c0c0c0;
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 1366px) {
+    .match-item__info {
+        justify-content: flex-start;
+    }
+}
+
+/* /Middle tab */
+
+/* End tab */
+
+.end-tab {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* /End tab */
+
+@media screen and (max-width: 1199px) {
+    /* Start tab */
+    .start-tab {
+        width: 100%;
+        height: 88vh;
+        margin-bottom: 25px;
+        padding: 35px !important;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .live-match__match {
+        justify-content: space-around;
+    }
+
+    .live-match__logo {
+        width: 150px;
+        height: 100%;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+    }
+
+    .team-item__logo-img,
+    .best-player-item-img {
+        width: 90px;
+        height: 100%;
+    }
+
+    .live-match__match-score span {
+        font-size: 3.5rem !important;
+        font-weight: 600 !important;
+        color: #646464;
+    }
+
+    .team-item__logo-img,
+    .best-player-item-img,
+    .match__logo {
+        margin-right: 1rem;
+    }
+
+    .team-item__name-text {
+        font-size: 1.6rem !important;
+        overflow: hidden;
+        white-space: nowrap; /* Don't forget this one */
+        text-overflow: ellipsis;
+    }
+
+    .best-player-item__name-text {
+        font-size: 1.6rem !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    /* /Start tab */
+
+    /* Middle tab */
+    .match__logo {
+        width: 100px;
+        height: auto;
+    }
+
+    .match-item {
+        flex-wrap: wrap;
+    }
+
+    .match-item__match {
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    .match-item span.match-item__detail i {
+        display: none;
+    }
+
+    .match-item__match-left {
+        margin-right: 0;
+        flex-direction: row-reverse;
+    }
+
+    .match-item__match-left-name {
+        text-align: right;
+        margin-right: 1rem;
+    }
+
+    .match-item__match-right {
+        margin-left: 15px;
+    }
+
+    .match-item__info {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    .label {
+        text-align: center;
+    }
+
+    .match-item__match-left-name,
+    .match-item__match-right-name {
+        display: none;
+    }
+
+    .live-match__logo {
+        width: 70px;
+        height: 100%;
+    }
+
+    .banner .banner-title {
+        font-size: 2.4rem !important;
+    }
+}
+
+@media (max-width: 575.98px) { 
+    .banner .banner-title {
+        font-size: 2.4rem !important;
+    }
+ }
