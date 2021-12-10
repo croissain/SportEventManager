@@ -24,6 +24,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav nav-item dropdown ms-auto text-center">
+                {{#if user}}
                 <div class="navbar__user d-flex" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <li>
@@ -34,6 +35,14 @@
                         <p class="user-role">Admin</p>
                     </li>
                 </div>
+
+                {{else}}
+                <div>
+                    <a class="nav-link" href="/auth/login">Đăng nhập</a>
+                </div>
+                {{/if}}
+
+                {{#if user}}
                 <ul class="dropdown-menu  dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#">
                             <span><i class="fas fa-user"></i></span>
@@ -50,10 +59,11 @@
                     </li>
                     <li><a class="dropdown-item" href="#">
                             <span><i class="fas fa-sign-out-alt"></i></span>
-                            Đăng xuất
+                            <a class="nav-link" href="/auth/logout">Đăng xuất</a>
                         </a>
                     </li>
                 </ul>
+                {{/if}}
             </ul>
         </div>
     </div>

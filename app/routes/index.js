@@ -4,6 +4,7 @@ const tournamentRouter = require('./tournament');
 // const authRouter = require('./auth');
 // const userRouter = require('./user');
 // const recordRouter = require('./record');
+const authRouter = require('./auth');
 const homeRouter = require('./home');
 
 function route(app) {
@@ -14,6 +15,7 @@ function route(app) {
     // app.use('/user', userRouter);
     // app.use('/record', recordRouter);
     app.use('/', homeRouter);
+    app.use('/auth',authRouter);
 }
 
 module.exports = route;
