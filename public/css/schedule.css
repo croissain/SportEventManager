@@ -1,0 +1,10 @@
+.dhx_cal_tab {
+    /* border: 1px solid #028058 !important; */
+    color: #028058 !important;
+}
+
+.dhx_cal_tab.active {
+    background-color: #007330 !important;
+    border: 1px solid #007330 !important;
+    color: #fff !important;
+}

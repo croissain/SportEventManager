@@ -30,12 +30,4 @@ sportTab.forEach(tab => {
         this.classList.add("active");
     };
 });
-
-sidebarTab.forEach(tab => {
-    tab.onclick = function () {
-        $(".sidebar-tab.active").classList.remove("active");
-
-        this.classList.add("active");
-    };
-});
 // /Sidebar

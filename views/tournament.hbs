@@ -95,78 +95,32 @@
             <div class="container-fluid">
                 <div class="row">
                     <p class="label">Giải đấu bậc Tiểu học</p>
+                    {{#each tournaments}}
                     <div class="col-xl-4">
                         <div class="tournament-tag mb-3 d-flex flex-column flex-align-between">
                             <div class="flex-grow-1 tournament-tag__content">
-                                <p class="label tournament-tag__title">Giải đấu A</p>
+                                <p class="label tournament-tag__title">Giải đấu {{this.TenGD}}</p>
                                 <p class="title tournament-tag__startdate">Ngày bắt đầu: 15/05/2021</p>
-                                <p class="title tournament-tag__startdate">Ngày kết thúc: 25/05/2021</p>
-                                <p class="title tournament-tag__startdate">Ngày hiện tại: 20/05/2021</p>
+                                <p class="title tournament-tag__startdate" id="date">Ngày hiện tại: 20/05/2021</p>
+                                {{!-- <p class="title tournament-tag__startdate">Ngày kết thúc: 25/05/2021</p> --}}
+                                <p class="title tournament-tag__startdate">Số đội tham gia: {{this.SoDBThamGia}}</p>
                             </div>
                             <p class="label">Tiến độ giải đấu</p>
                             <div class="progress">
                                 <div class="tournament-tag__progress progress-bar bg-secondary" style="width:70%">
                                 </div>
                             </div>
-                            <a class="mt-3" href="">
-                                <p class="text-end"> Đi đến giải đấu</p>
-                            </a>
+                            <div class="tournament-tag__moreinfo d-flex flex-row-reverse">
+                                <a class="mt-3" href="/team">
+                                    <p class="text-end">Các đội tham gia</p>
+                                </a>
+                                <a class="mt-3" href="/result">
+                                    <p class="text-end me-4">Kết quả</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xl-4">
-                        <div class="tournament-tag mb-3 d-flex flex-column flex-align-between">
-                            <div class="flex-grow-1 tournament-tag__content">
-                                <p class="label tournament-tag__title">Giải đấu A</p>
-                                <p class="title tournament-tag__startdate">Ngày bắt đầu: 15/05/2021</p>
-                                <p class="title tournament-tag__startdate">Ngày kết thúc: 25/05/2021</p>
-                                <p class="title tournament-tag__startdate">Ngày hiện tại: 20/05/2021</p>
-                            </div>
-                            <p class="label">Tiến độ giải đấu</p>
-                            <div class="progress">
-                                <div class="tournament-tag__progress progress-bar bg-secondary" style="width:70%">
-                                </div>
-                            </div>
-                            <div class="mt-3"><a href="">
-                                    <p class="text-end"> Đi đến giải đấu</p>
-                                </a></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4">
-                        <div class="tournament-tag mb-3 d-flex flex-column flex-align-between">
-                            <div class="flex-grow-1 tournament-tag__content">
-                                <p class="label tournament-tag__title">Giải đấu A</p>
-                                <p class="title tournament-tag__startdate">Ngày bắt đầu: 15/05/2021</p>
-                                <p class="title tournament-tag__startdate">Ngày kết thúc: 25/05/2021</p>
-                                <p class="title tournament-tag__startdate">Ngày hiện tại: 20/05/2021</p>
-                            </div>
-                            <p class="label">Tiến độ giải đấu</p>
-                            <div class="progress">
-                                <div class="tournament-tag__progress progress-bar bg-secondary" style="width:70%">
-                                </div>
-                            </div>
-                            <div class="mt-3"><a href="">
-                                    <p class="text-end"> Đi đến giải đấu</p>
-                                </a></div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4">
-                        <div class="tournament-tag mb-3 d-flex flex-column flex-align-between">
-                            <div class="flex-grow-1 tournament-tag__content">
-                                <p class="label tournament-tag__title">Giải đấu A</p>
-                                <p class="title tournament-tag__startdate">Ngày bắt đầu: 15/05/2021</p>
-                                <p class="title tournament-tag__startdate">Ngày kết thúc: 25/05/2021</p>
-                                <p class="title tournament-tag__startdate">Ngày hiện tại: 20/05/2021</p>
-                            </div>
-                            <p class="label">Tiến độ giải đấu</p>
-                            <div class="progress">
-                                <div class="tournament-tag__progress progress-bar bg-secondary" style="width:70%">
-                                </div>
-                            </div>
-                            <div class="mt-3"><a href="">
-                                    <p class="text-end"> Đi đến giải đấu</p>
-                                </a></div>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
         </div>
@@ -190,3 +144,11 @@
     </div>
 </div>
 <!-- /Tourmanents -->
+<script>
+    n = new Date();
+    d = n.getDate();
+    m = n.getMonth() + 1;
+    y = n.getFullYear();
+
+    document.getElementById("date").innerHTML = `Ngày hiện tại: ${d}/${m}/${y}`;
+</script>
