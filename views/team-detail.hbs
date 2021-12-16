@@ -3,39 +3,42 @@
             <!-- Team header -->
             <div>
                 <div class="row">
+                    {{#if teamdetails}}
                     <div class="col-xl-6 col-md-12">
                         <div class="team-tag team-banner d-flex align-items-center"
-                            style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/img/bg-02.jpg)">
+                            style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(/img/bg-02.jpg)">
                             <div class="me-3 team-banner__logo">
-                                <img src="./assets/img/logo1.png" alt="">
+                                <img src="/img/logo1.png" alt="">
                             </div>
                             <div class="team-banner__info row">
                                 <p class="subtitle flex-grow-1 team-banner__team-name">Tên đội</p>
-                                <p class="label team-banner__uni-name">Trường Cao Đẳng Ngoại Ngữ và công
-                                    nghệ Việt Nam</p>
+                                <p class="label team-banner__uni-name">Trường {{teamdetails.TenDB}}</p>
                             </div>
                         </div>
                     </div>
+                    {{/if}}
 
+                    {{#if teamleader}}
                     <div class="col-xl-6 col-md-12">
                         <div class="team-tag team-manager d-flex align-items-baseline">
                             <div class=" me-3 team-manager__img">
-                                <img src="./assets/img/p1.jpg" alt="">
+                                <img src="/img/p1.jpg" alt="">
                             </div>
                             <div class="team-manager__info row">
                                 <p class="flex-grow-1 team-manager__name">
-                                    <span class="label team-manager__fullname me-3">Nguyễn Văn A</span>
+                                    <span class="label team-manager__fullname me-3">{{teamleader.TenNDK}}</span>
                                     <span class="label team-manager__role">(Trưởng đội)</span>
                                 </p>
                                 <p class="team-manager__contact">
                                     <span class="label team-manager__email me-3"><i
-                                            class="fas fa-envelope"></i>nguyenvana@gmail.com</span>
-                                    <span class="label team-manager__phonenum"><i class="fas fa-phone"></i>+84
-                                        123456789</span>
+                                            class="fas fa-envelope"></i>{{teamleader.Email}}</span>
+                                    <span class="label team-manager__phonenum"><i class="fas fa-phone"></i>
+                                        {{teamleader.SDT}}</span>
                                 </p>
                             </div>
                         </div>
                     </div>
+                    {{/if}}
                 </div>
             </div>
             <!-- /Team header -->
@@ -69,186 +72,28 @@
 
             <div>
                 <div class="row">
+                    {{#each teammembers}}
                     <div class="col-xl-6 col-md-12">
                         <div class="team-tag team-member d-flex align-items-baseline">
                             <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
+                                <img src="/img/p1.jpg" alt="">
                             </div>
                             <div class="flex-grow-1 team-member__info row">
                                 <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
+                                    <span class="label team-member__fullname">{{this.TenCT}}</span>
                                 </p>
                                 <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
+                                    <span class="team-member__role-title">{{this.ViTri}}</span>
+                                    <span class="team-member__height">{{this.ChieuCaoCT}}m</span>
+                                    <span class="team-member__weight">{{this.CanNangCT}}kg</span>
                                 </p>
                             </div>
                             <h1 class="team-member__shirtnum">
-                                01
+                                {{this.SoAo}}
                             </h1>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="team-tag team-member d-flex align-items-baseline">
-                            <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
-                            </div>
-                            <div class="flex-grow-1 team-member__info row">
-                                <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
-                                </p>
-                                <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
-                                </p>
-                            </div>
-                            <h1 class="team-member__shirtnum">
-                                23
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="team-tag team-member d-flex align-items-baseline">
-                            <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
-                            </div>
-                            <div class="flex-grow-1 team-member__info row">
-                                <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
-                                </p>
-                                <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
-                                </p>
-                            </div>
-                            <h1 class="team-member__shirtnum">
-                                45
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="team-tag team-member d-flex align-items-baseline">
-                            <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
-                            </div>
-                            <div class="flex-grow-1 team-member__info row">
-                                <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
-                                </p>
-                                <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
-                                </p>
-                            </div>
-                            <h1 class="team-member__shirtnum">
-                                67
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="team-tag team-member d-flex align-items-baseline">
-                            <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
-                            </div>
-                            <div class="flex-grow-1 team-member__info row">
-                                <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
-                                </p>
-                                <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
-                                </p>
-                            </div>
-                            <h1 class="team-member__shirtnum">
-                                89
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="team-tag team-member d-flex align-items-baseline">
-                            <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
-                            </div>
-                            <div class="flex-grow-1 team-member__info row">
-                                <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
-                                </p>
-                                <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
-                                </p>
-                            </div>
-                            <h1 class="team-member__shirtnum">
-                                89
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="team-tag team-member d-flex align-items-baseline">
-                            <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
-                            </div>
-                            <div class="flex-grow-1 team-member__info row">
-                                <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
-                                </p>
-                                <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
-                                </p>
-                            </div>
-                            <h1 class="team-member__shirtnum">
-                                89
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="team-tag team-member d-flex align-items-baseline">
-                            <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
-                            </div>
-                            <div class="flex-grow-1 team-member__info row">
-                                <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
-                                </p>
-                                <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
-                                </p>
-                            </div>
-                            <h1 class="team-member__shirtnum">
-                                89
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-12">
-                        <div class="team-tag team-member d-flex align-items-baseline">
-                            <div class=" me-3 team-member__img">
-                                <img src="./assets/img/p1.jpg" alt="">
-                            </div>
-                            <div class="flex-grow-1 team-member__info row">
-                                <p class="team-member__name">
-                                    <span class="label team-member__fullname">Nguyễn Văn A</span>
-                                </p>
-                                <p class="label team-member__role">
-                                    <span class="team-member__role-title">Thủ môn</span>
-                                    <span class="team-member__height">180m</span>
-                                    <span class="team-member__weight">70kg</span>
-                                </p>
-                            </div>
-                            <h1 class="team-member__shirtnum">
-                                89
-                            </h1>
-                        </div>
-                    </div>
+                    {{/each}}
                 </div>
             </div>
             <!-- /Team members -->

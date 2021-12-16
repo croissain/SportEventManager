@@ -9,7 +9,10 @@ const route = require('./app/routes');
 //passport
 const passport = require('passport');
 const session = require('express-session');
-//
+
+//flatpickr (module to pick date)
+const flatpickr = require("flatpickr");
+
 
 const app = express();
 
@@ -19,6 +22,11 @@ app.engine('.hbs', exphbs({
   runtimeOptions: {
     allowProtoPropertiesByDefault: true,
     allowProtoMethodsByDefault: true,
+  },
+  helpers: {
+    sum: function (a, b) {
+      return a + b;
+    }
   }
 }));
 

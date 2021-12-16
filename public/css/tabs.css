@@ -72,16 +72,18 @@
     left: 30%;
 }
 
+.banner-content a {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
 .banner-btn {
     padding: 8px 24px !important;
     border-radius: 50px !important;
     font-size: 1.4rem !important;
     font-weight: 600 !important;
     color: #007330 !important;
-    position: inherit;
-    bottom: 25px;
-    right: 25px;
-    /* margin: 0 25px 25px; */
 }
 
 .banner-btn i {

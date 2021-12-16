@@ -2,6 +2,16 @@
     text-align: center;
 }
 
+a.edu-stage-link {
+    margin-bottom: 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+a.edu-stage-link:hover {
+    color:#007330!important;
+}
+
 .edu-tag {
     position: relative;
     height: 50px;
@@ -11,6 +21,20 @@
     border-radius: 15px;
     color: #f3f4f7;
     overflow: hidden;
+    transition: all 0.2s ease-in-out;
+}
+
+.edu-tag:hover {
+    cursor: pointer;
+    background-color: #029740;
+    /* border: 1px solid #007330; */
+}
+
+.edu-tag.active {
+    cursor: default;
+    color:#007330!important;
+    background-color: #fff;
+    border: 1px solid #007330;
 }
 
 .edu-tag__content {
@@ -20,6 +44,10 @@
     top: 20%;
     padding-left: 25px;
     z-index: 99;
+}
+
+.edu-tag__title:active {
+    margin-bottom: 0;
 }
 
 /* .bg-deco {
@@ -57,3 +85,6 @@
     height: 300px;
 }
 
+.tournament-tag a {
+    color: #007330;
+}

@@ -1,0 +1,114 @@
+<body>
+    <!-- Tourmanents -->
+    <div class="container-fluid g-5">
+        <!-- Filter bar -->
+        <div class="filter-tag d-flex flex-wrap align-items-baseline">
+            <p class="label">Tìm kiếm đội thi đấu</p>
+
+            <div class="search-bar">
+                <input class="form-control search-box" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </div>
+            {{!-- <div class="filter-tag d-flex align-items-baseline">
+                <p>Lọc: </p>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Vị trí
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Thủ môn</a></li>
+                        <li><a class="dropdown-item" href="#">Hậu vệ</a></li>
+                        <li><a class="dropdown-item" href="#">Tiền vệ</a></li>
+                        <li><a class="dropdown-item" href="#">Tiền đạo</a></li>
+                    </ul>
+                </div>
+            </div> --}}
+        </div>
+        <h2 class="tournament-title mb-5">GIẢI ĐẤU ĐANG DIỄN RA</h2>
+        <!-- /Filter bar -->
+        <div class="row">
+            <div class="col-xl-3">
+                <p class="label edu-stage-title">Cấp bậc giáo dục</>
+                <div class="edu-stage">
+                    <div class="edu-tag mb-3">
+                        <!-- <span class="bg-deco"></span> -->
+                        <div class="edu-tag__content">
+                            <!-- <img src="" alt="" class="banner-img"> -->
+                            <p class="label edu-tag__title">TIỂU HỌC</p>
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-stage">
+                    <div class="edu-tag mb-3">
+                        <!-- <span class="bg-deco"></span> -->
+                        <div class="edu-tag__content">
+                            <!-- <img src="" alt="" class="banner-img"> -->
+                            <p class="label edu-tag__title">THCS</p>
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-stage">
+                    <div class="edu-tag mb-3">
+                        <!-- <span class="bg-deco"></span> -->
+                        <div class="edu-tag__content">
+                            <!-- <img src="" alt="" class="banner-img"> -->
+                            <p class="label edu-tag__title">THPT</p>
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-stage">
+                    <div class="edu-tag mb-3">
+                        <!-- <span class="bg-deco"></span> -->
+                        <div class="edu-tag__content">
+                            <!-- <img src="" alt="" class="banner-img"> -->
+                            <p class="label edu-tag__title">ĐẠI HỌC</p>
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="edu-stage">
+                    <div class="edu-tag mb-3">
+                        <!-- <span class="bg-deco"></span> -->
+                        <div class="edu-tag__content">
+                            <!-- <img src="" alt="" class="banner-img"> -->
+                            <p class="label edu-tag__title">KHÁC</p>
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Teams -->
+
+            <div class="col-xl-9">
+                <p class="label">Các đội trong giải A</p>
+                {{#each teams}}
+                <div class="team-tag mb-3 d-flex align-items-center">
+                    <h4 class="me-5">{{sum @index 1}}</h4>
+                    <div class="me-3 team-tag__logo">
+                        <img src="/img/logo1.png" alt="">
+                    </div>
+                    <div class="team-tag__info flex-grow-1 row">
+                        <p class="subtitle flex-grow-1 team-tag__team-name">{{this.TenDB}}</p>
+                        <div class="d-flex">
+                            <p class="label team-tag__memnum me-5">Số thành viên: {{this.SoThanhVien}}</p>
+                            <p class="label team-tag__score">Điểm: {{this.Diem}}</p>
+                        </div>
+                    </div>
+                    <a class="team-tag__moreinfo" href="/team/{{this.MaDB}}">
+                        <span class="team-item__detail">
+                            Xem chi tiết
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+            <!-- /Teams -->
+        </div>
+    </div>
+    <!-- /Tourmanents -->
+</body>
