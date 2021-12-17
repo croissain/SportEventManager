@@ -5,6 +5,7 @@ var _CauThu = require("./CauThu");
 var _ChiTietTD = require("./ChiTietTD");
 var _DoiBong = require("./DoiBong");
 var _GiaiDau = require("./GiaiDau");
+var _LichThiDau = require("./LichThiDau");
 var _NguoiDangKy = require("./NguoiDangKy");
 var _SanDau = require("./SanDau");
 var _TranDau = require("./TranDau");
@@ -17,6 +18,7 @@ function initModels(sequelize) {
   var ChiTietTD = _ChiTietTD(sequelize, DataTypes);
   var DoiBong = _DoiBong(sequelize, DataTypes);
   var GiaiDau = _GiaiDau(sequelize, DataTypes);
+  var LichThiDau = _LichThiDau(sequelize, DataTypes);
   var NguoiDangKy = _NguoiDangKy(sequelize, DataTypes);
   var SanDau = _SanDau(sequelize, DataTypes);
   var TranDau = _TranDau(sequelize, DataTypes);
@@ -54,6 +56,7 @@ function initModels(sequelize) {
     ChiTietTD,
     DoiBong,
     GiaiDau,
+    LichThiDau,
     NguoiDangKy,
     SanDau,
     TranDau,

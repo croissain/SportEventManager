@@ -1,13 +1,39 @@
+.result-container {
+    width: 970px !important;
+}
+
 .result-tab {
     margin-bottom: 25px;
     padding: 16px;
     background-color: #fff;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    height: 150px;
+    height: 85%;
 }
 
 .result-tab__team img {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+}
+
+.devide-line {
+    border-left: 1px solid rgba(3, 136, 3, 0.445);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    height: 100%;
+}
+
+.result-tab__record-video iframe {
     width: 100px;
-    height: 100px;
+    height: 60px;
+}
+
+span.win {
+    font-weight: 600;
+    color: green;
+}
+
+span.lose {
+    color: #b9b9b9;
 }

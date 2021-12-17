@@ -8,6 +8,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cookie-parser": "~1.4.4",
+    "date-format-lite": "^17.7.0",
     "debug": "~2.6.9",
     "dhtmlx-scheduler": "^5.3.13",
     "exphbs": "^1.2.0",
@@ -19,7 +20,8 @@
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.11.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "util": "^0.12.4"
   },
   "devDependencies": {
     "body-parser": "^1.19.0",

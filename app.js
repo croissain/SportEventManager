@@ -8,6 +8,8 @@ const logger = require('morgan');
 const exphbs = require('express-handlebars');
 const dotenv = require('dotenv');
 const route = require('./app/routes');
+const util = require("util");
+const pg = require('pg');
 //passport
 const passport = require('passport');
 const session = require('express-session');
@@ -34,9 +36,6 @@ app.engine('.hbs', exphbs({
   }
 }));
 
-
-
-
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -56,10 +55,6 @@ app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });
-
-
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
 
 // routes
 route(app);
