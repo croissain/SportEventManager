@@ -18,8 +18,6 @@ exports.addPlayer = async (playerName, playerNumber, playerPosition, birth, heig
     const id = maxId.substring(2,4);
     const nextId = "CT" + (parseInt(id) + 1);
 
-
-
     try {
         const player = await models.CauThu.create(
             {
