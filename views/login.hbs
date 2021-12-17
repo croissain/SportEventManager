@@ -10,7 +10,7 @@
                         <h3>Đăng Nhập</h3>
                         <p class="mb-4">Website quản lý đội tuyển thể thao lớn nhất Việt Nam.</p>
                     </div>
-                    <form action="#" method="post">
+                    <form action="/auth/login" method="post">
                         <!-- <div class="form-group first">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username">
@@ -23,7 +23,7 @@
                         </div> -->
 
                         <div class="form-floating mb-3">
-                            <input type="text" name="username" class="form-control" id="floatingInput"
+                            <input type="email" name="email" class="form-control" id="floatingInput"
                                    placeholder="name@example.com">
                             <label for="floatingInput">Tên đăng nhập</label>
                         </div>
@@ -35,7 +35,7 @@
                         {{#if loginFailed}}
                             <div class="row">
                                 <div class="col text-center">
-                                    <h4 class="text-danger">Sai tên đăng nhập hoặc mật khẩu</h4>
+                                    <h4 class="text-danger" style="font-size: 12px; font-style: italic">Sai tên đăng nhập hoặc mật khẩu</h4>
                                 </div>
                             </div>
                         {{/if}}
