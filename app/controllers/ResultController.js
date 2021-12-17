@@ -1,10 +1,10 @@
-const SiteServices = require('../services/SiteServices');
+const ResultServices = require('../services/ResultServices');
 const TeamServices = require('../services/TeamServices');
 
 class ResultController {
     showResult = async (req, res, next) => {
 
-        const match = await SiteServices.findAllMatch();
+        const match = await ResultServices.findAllMatch();
 
         let teamArr = {};
 

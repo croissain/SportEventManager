@@ -45,3 +45,14 @@
 // }
 
 // module.exports = new ScheduleController;
+
+const SiteServices = require('../services/SiteServices');
+const TeamServices = require('../services/TeamServices');
+
+class ScheduleController {
+    showSchedule = async (req, res, next) => {
+        res.render('schedule');
+    }
+}
+
+module.exports = new ScheduleController;

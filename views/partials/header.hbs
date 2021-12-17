@@ -22,6 +22,11 @@
                 <li class="nav-item">
                     <a class="nav-link label disabled">Phân tích</a>
                 </li>
+                {{#unless user}}
+                    <li>
+                        <a class="nav-link label" href="/register">Đăng ký đội</a>
+                    </li>
+                {{/unless}}
             </ul>
             <ul class="navbar-nav nav-item dropdown ms-auto text-center">
                 {{#if user}}

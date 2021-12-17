@@ -1,3 +1,8 @@
+const {models} = require('../models');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+const UserServices = require('../services/UserServices')
+
 const passport = require('passport')
     ,LocalStrategy = require('passport-local').Strategy;
 
@@ -5,35 +10,40 @@ const bcrypt = require('bcrypt');
 
 passport.use(new LocalStrategy(
     {
-        usernameField: 'username',
+        usernameField: 'email',
         passwordField: 'password',
     },
-    async function(username, password, done) {
-        console.log(username,password);
+    async function(email, password, done) {
+        console.log(email,password);
 
         try
         {
 
-            // const user = await models.users.findOne({
-            //     where: {
-            //     },
-            //     raw: true
-            // });
+            const user = await UserServices.findUserByEmail(email);
 
             ////////test/////////
-            let user = null;
-            if (username === "sang")
-            {
-                user = {
-                    username: "sang",
-                    password: "123"
-                }
-            }
+            // let user = null;
+            // if (email === "ngvana@gmail.com")
+            // {
+            //     user = {
+            //         email: "ngvana@gmail.com",
+            //         password: "$2b$05$PdMtge8ocK4oeq8UY4e6k.V.Z5dvbm8TlAsf7qozkrcqnMG2IrhrW"
+            //         // pass: zxcvbnm123
+            //     }
+            // }
+            // else if (email === "ngvanb@gmail.com")
+            // {
+            //     user = {
+            //         email: "ngvanb@gmail.com",
+            //         password: "$2b$05$JXGuej/HvJau/tUsuskFyecpuMXp2QCSSPARxseiK4dyRpU/L1Wh6"
+            //         // pass: abcxyz123
+            //     }
+            // }
 
             ////////test/////////
 
             if (!user) {
-                return done(null, false, { message: 'Incorrect username.' });
+                return done(null, false, { message: 'Incorrect email.' });
             }
             const match = await validPassword(user,password);
             if (!match) {
@@ -49,7 +59,7 @@ passport.use(new LocalStrategy(
 ));
 
 passport.serializeUser(function(user, done) {
-    done(null, {username: user.username});
+    done(null, {email: user.Email});
 });
 
 
@@ -60,12 +70,8 @@ passport.deserializeUser(async function(user, done) {
 
 
 async function validPassword(user,password){
-    //test
-    if (user.password === password){
-        return true;
-    }
-    return false;
 
+    return bcrypt.compare(password, user.Password);
     // return bcrypt.compare(password, user.password);
 }
 
