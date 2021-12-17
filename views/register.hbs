@@ -10,17 +10,17 @@
                 </div>
             </div>
             <div class="signup-form">
-                <form method="POST" class="register-form" id="register-form">
+                <form action="/register" method="POST" class="register-form" id="register-form">
                     <div class="form-row">
                         <div class="form-group">
                             <div class="form-input">
                                 <label for="name" class="required">Họ và tên</label>
                                 <input type="text" name="name" id="name" />
                             </div>
-                            <div class="form-input">
-                                <label for="username" class="required">Tên đăng nhập</label>
-                                <input type="text" name="username" id="username" />
-                            </div>
+<!--                            <div class="form-input">-->
+<!--                                <label for="username" class="required">Tên đăng nhập</label>-->
+<!--                                <input type="text" name="username" id="username" />-->
+<!--                            </div>-->
                             <div class="form-input">
                                 <label for="password" class="required">Mật khẩu</label>
                                 <input type="password" name="password" id="password" />
@@ -28,6 +28,9 @@
                             <div class="form-input">
                                 <label for="email" class="required">Email</label>
                                 <input type="text" name="email" id="email" />
+                                {{#if registerFailed}}
+                                    <h4 class="text-danger" style="font-size: 12px; font-style: italic">Email đã tồn tại</h4>
+                                {{/if}}
                             </div>
                             <div class="form-input">
                                 <label for="phone_number" class="required">Số điện thoại</label>
@@ -104,3 +107,9 @@
     </div>
 
 </div>
+
+{{#section 'script'}}
+    <script>
+        
+    </script>
+{{/section}}

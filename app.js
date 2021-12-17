@@ -11,6 +11,7 @@ const route = require('./app/routes');
 //passport
 const passport = require('passport');
 const session = require('express-session');
+const expressHandlebarsSections = require('express-handlebars-sections');
 
 const app = express();
 dotenv.config({path: '.env'});
@@ -22,12 +23,14 @@ const flatpickr = require("flatpickr");
 
 // view engine setup
 app.engine('.hbs', exphbs({
+
   extname: '.hbs',
   runtimeOptions: {
     allowProtoPropertiesByDefault: true,
     allowProtoMethodsByDefault: true,
   },
   helpers: {
+    section: expressHandlebarsSections(),
     sum: function (a, b) {
       return a + b;
     }
