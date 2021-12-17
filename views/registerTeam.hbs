@@ -1,0 +1,93 @@
+<div class="main">
+
+    <div class="container">
+        <div class="signup-content">
+            <div class="signup-img">
+                <img src="/img/bg-03.jpg" alt="">
+                <div class="signup-img-content">
+                    <h2>Đăng ký lập đội ngay!</h2>
+                    <p>Trong khi còn có thể</p>
+                </div>
+            </div>
+            <div class="signup-form">
+                <form action="/register/team" method="POST" class="register-form" id="register-form">
+                    <div class="form-row row justify-content-center">
+                        <div class="form-group">
+                            <div class="form-input">
+                                <label for="name" class="required">Tên đội</label>
+                                <input type="text" name="teamName" id="name" />
+                            </div>
+                            <div>
+                                <label for="">Chọn giải đấu</label>
+                                <select class="form-control" name="tournamentName" id="">
+                                    {{#each tournaments}}
+                                        <option>{{TenGD}}</option>
+                                    {{/each}}
+
+                                </select>
+                            </div>
+                            <div>
+                                <label for="">Chọn màu áo</label>
+                                <select class="form-control" name="color" id="">
+                                    <option value="black">Đen</option>
+                                    <option value="white">Trắng</option>
+                                    <option value="silver">Bạc</option>
+                                    <option value="red">Đỏ</option>
+                                    <option value="orange">Cam</option>
+                                    <option value="yellow">Vàng</option>
+                                    <option value="green">Xanh lá</option>
+                                    <option value="blue">Xanh dương</option>
+                                    <option value="violet">Tím</option>
+                                    <option value="pink">Hồng</option>
+                                </select>
+                            </div>
+                            <div class="form-radio">
+                                <div class="label-flex">
+                                    <label for="payment">Phương thức thanh toán</label>
+                                    <a href="#" class="form-link">Chi tiết thanh toán</a>
+                                </div>
+                                <div class="form-radio-group">
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="payment" id="cash" checked>
+                                        <label for="cash">Tiền mặt</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="payment" id="cheque">
+                                        <label for="cheque">Séc</label>
+                                        <span class="check"></span>
+                                    </div>
+                                    <div class="form-radio-item">
+                                        <input type="radio" name="payment" id="transfer">
+                                        <label for="transfer">Chuyển khoản</label>
+                                        <span class="check"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-input">
+                                <label for="chequeno">DD / Mã Séc.</label>
+                                <input type="text" name="chequeno" id="chequeno" />
+                            </div>
+                            <div class="form-input">
+                                <label for="blank_name">Tên ngân hàng</label>
+                                <input type="text" name="blank_name" id="blank_name" />
+                            </div>
+                            <!-- <div class="form-input">
+                                <label for="payable">Payable at</label>
+                                <input type="text" name="payable" id="payable" />
+                            </div> -->
+
+                        </div>
+                    </div>
+                    <div class="form-submit row justify-content-center">
+                        <input type="submit" value="Đăng ký" class="submit" id="submit"
+                               name="submit" />
+                        <!-- <input type="submit" value="Reset" class="submit" id="reset" name="reset" /> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
