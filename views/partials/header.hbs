@@ -22,11 +22,19 @@
                 <li class="nav-item">
                     <a class="nav-link label disabled">Phân tích</a>
                 </li>
-                {{#unless user}}
+                {{#if user}}
                     <li>
-                        <a class="nav-link label" href="/register">Đăng ký đội</a>
+                        <a class="nav-link label" href="/register/team">Đăng ký đội</a>
                     </li>
-                {{/unless}}
+                    <li>
+                        <a class="nav-link label" href="/register/members">Đội của bạn</a>
+                    </li>
+                {{else}}
+                    <li>
+                        <a class="nav-link label" href="/register">Đăng ký tài khoản</a>
+                    </li>
+                {{/if}}
+
             </ul>
             <ul class="navbar-nav nav-item dropdown ms-auto text-center">
                 {{#if user}}
@@ -35,9 +43,8 @@
                     <li>
                         <img src="/img/picme.jpg" alt="" class="user-avatar">
                     </li>
-                    <li class="navbar__user dropdown gx-0 row">
-                        <p class="user-name">Tho Le</p>
-                        <p class="user-role">Admin</p>
+                    <li class="navbar__user dropdown gx-0 row align-items-center">
+                        <p class="user-name">{{user.email}}</p>
                     </li>
                 </div>
 

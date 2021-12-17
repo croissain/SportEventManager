@@ -7,3 +7,12 @@ exports.findAllTournaments = async() => {
         raw: true,
     });
 }
+
+exports.findTournamentByName = async(name) => {
+    return await models.GiaiDau.findOne({
+        raw: true,
+        where: {
+            TenGD: name
+        }
+    });
+}
