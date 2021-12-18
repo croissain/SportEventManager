@@ -22,15 +22,18 @@
                             <label for="selectAll"></label>
                         </span>
                     </th>
+                    <th>Mã cầu thủ</th>
                     <th>Họ và tên</th>
                     <th>Số áo</th>
+                    <th>Vị trí</th>
                     <th>Ngày sinh</th>
                     <th>Chiều cao</th>
                     <th>Cân nặng</th>
-                    <th>Hành động</th>
+                    <th>Tổng bàn thắng</th>
                 </tr>
             </thead>
             <tbody>
+            {{#each members}}
                 <tr>
                     <td>
                         <span class="custom-checkbox">
@@ -38,72 +41,22 @@
                             <label for="checkbox1"></label>
                         </span>
                     </td>
-                    <td>Thomas Hardy</td>
-                    <td>01</td>
-                    <td>12/12/2001</td>
-                    <td>1.72</td>
-                    <td>69</td>
-                    <td>
-                        <a href="#editMemberModal" class="edit" data-toggle="modal"><i
-                                class="fas fa-pencil-alt"></i></a>
-                        <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="custom-checkbox">
-                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                            <label for="checkbox1"></label>
-                        </span>
-                    </td>
-                    <td>Thomas Hardy</td>
-                    <td>01</td>
-                    <td>12/12/2001</td>
-                    <td>1.72</td>
-                    <td>69</td>
-                    <td>
-                        <a href="#editMemberModal" class="edit" data-toggle="modal"><i
-                                class="fas fa-pencil-alt"></i></a>
-                        <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="custom-checkbox">
-                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                            <label for="checkbox1"></label>
-                        </span>
-                    </td>
-                    <td>Thomas Hardy</td>
-                    <td>01</td>
-                    <td>12/12/2001</td>
-                    <td>1.72</td>
-                    <td>69</td>
-                    <td>
-                        <a href="#editMemberModal" class="edit" data-toggle="modal"><i
-                                class="fas fa-pencil-alt"></i></a>
-                        <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="custom-checkbox">
-                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                            <label for="checkbox1"></label>
-                        </span>
-                    </td>
-                    <td>Thomas Hardy</td>
-                    <td>01</td>
-                    <td>12/12/2001</td>
-                    <td>1.72</td>
-                    <td>69</td>
-                    <td>
-                        <a href="#editMemberModal" class="edit" data-toggle="modal"><i
-                                class="fas fa-pencil-alt"></i></a>
-                        <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="fas fa-trash"></i></a>
-                    </td>
-                </tr>
+                    <td>{{MaCT}}</td>
+                    <td>{{TenCT}}</td>
+                    <td>{{SoAo}}</td>
+                    <td>{{ViTri}}</td>
+                    <td>{{NgSinhCT}}</td>
+                    <td>{{ChieuCaoCT}}</td>
+                    <td>{{CanNangCT}}</td>
+                    <td>{{TongBT}}</td>
 
+                    <td>
+                        <a href="#editMemberModal" class="edit" data-toggle="modal"><i
+                                class="fas fa-pencil-alt"></i></a>
+                        <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            {{/each}}
             </tbody>
         </table>
     </div>
@@ -112,32 +65,37 @@
 <div id="addMemberModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form action="/register/members/add" method="post">
                 <div class="modal-header">
-                    <h4 class="modal-title">Thêm thành viên mới</h5>
+                    <h4 class="modal-title">Thêm thành viên mới</h4>
                         <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true"></button>
                 </div>
                 <div class="modal-body">
+                    <input name="teamId" value="{{teamId}}" type="hidden">
                     <div class="form-group">
                         <label>Họ và tên</label>
-                        <input type="text" class="form-control" required>
+                        <input name="playerName" type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Số áo</label>
-                        <input type="number" class="form-control" required>
+                        <input name="playerNumber"  type="number" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Vị trí</label>
+                        <input name="playerPosition"  type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Ngày sinh</label>
-                        <input type="date" class="form-control" required>
+                        <input name="birth" type="date" class="form-control" required>
                     </div>
                     <div class="row">
                         <div class="col-6 form-group">
                             <label>Chiều cao</label>
-                            <input type="number" class="form-control" required>
+                            <input name="height" type="number" class="form-control" required>
                         </div>
                         <div class="col-6 form-group">
                             <label>Cân nặng</label>
-                            <input type="number" class="form-control" required>
+                            <input name="weight" type="number" class="form-control" required>
                         </div>
                     </div>
                 </div>

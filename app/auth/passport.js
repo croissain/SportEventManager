@@ -59,7 +59,7 @@ passport.use(new LocalStrategy(
 ));
 
 passport.serializeUser(function(user, done) {
-    done(null, {email: user.Email});
+    done(null, {email: user.Email, id: user.MaNDK});
 });
 
 
