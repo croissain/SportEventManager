@@ -4,7 +4,7 @@ class TeamController {
         const teams = await TeamServices.findAllTeams();
         res.render('team', {
             title: 'SEM | Các đội tuyển thi đấu|',
-            teams,
+            teams: teams.rows,
         });
     }
 

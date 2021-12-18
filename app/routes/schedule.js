@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const ScheduleController = require('../controllers/ScheduleController');
 
+// router.post('/generate', ScheduleController.scheduleGenerate);
+router.get('/generate', ScheduleController.scheduleGenerate);
 router.get('/', ScheduleController.showSchedule);
 
 module.exports = router;

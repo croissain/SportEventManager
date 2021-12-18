@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 exports.findAllTeams = async() => {
-    return await models.DoiBong.findAll({
+    return await models.DoiBong.findAndCountAll({
         raw: true,
     });
 }

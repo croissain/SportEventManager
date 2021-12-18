@@ -22,15 +22,15 @@
 <!--                                <input type="text" name="username" id="username" />-->
 <!--                            </div>-->
                             <div class="form-input">
-                                <label for="password" class="required">Mật khẩu</label>
-                                <input type="password" name="password" id="password" />
-                            </div>
-                            <div class="form-input">
                                 <label for="email" class="required">Email</label>
                                 <input type="text" name="email" id="email" />
                                 {{#if registerFailed}}
                                     <h4 class="text-danger" style="font-size: 12px; font-style: italic">Email đã tồn tại</h4>
                                 {{/if}}
+                            </div>
+                            <div class="form-input">
+                                <label for="password" class="required">Mật khẩu</label>
+                                <input type="password" name="password" id="password" />
                             </div>
                             <div class="form-input">
                                 <label for="phone_number" class="required">Số điện thoại</label>
@@ -45,16 +45,17 @@
                                 </div>
                                 <div class="select-list">
                                     <select name="meal_preference" id="meal_preference">
-                                        <option value="Red">Đen</option>
-                                        <option value="Red">Trắng</option>
-                                        <option value="Red">Bạc</option>
-                                        <option value="Red">Đỏ</option>
-                                        <option value="Red">Cam</option>
-                                        <option value="Red">Vàng</option>
-                                        <option value="Red">Xanh lá</option>
-                                        <option value="Red">Xanh dương</option>
-                                        <option value="Red">Tím</option>
-                                        <option value="Red">Hồng</option>
+                                        <option value="black">Đen</option>
+                                        <option value="white">Trắng</option>
+                                        <option value="gray">Bạc</option>
+                                        <option value="red">Đỏ</option>
+                                        <option value="orange">Cam</option>
+                                        <option value="brown">Nâu</option>
+                                        <option value="yellow">Vàng</option>
+                                        <option value="green">Xanh lá</option>
+                                        <option value="blue">Xanh dương</option>
+                                        <option value="purple">Tím</option>
+                                        <option value="pink">Hồng</option>
                                     </select>
                                 </div>
                             </div>
