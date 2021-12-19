@@ -7,7 +7,7 @@ module.exports = {
     // USER: "postgres",
     // PASSWORD: "1234",
     // DB: "SEM1218",
-    SESSION_SECRET: "secret",
+    SESSION_SECRET: "mysecret",
     dialect: "postgres",
     pool: {
         max: 5,

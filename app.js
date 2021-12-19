@@ -3,7 +3,7 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const logger = require('morgan');
 const exphbs = require('express-handlebars');
 const dotenv = require('dotenv');
@@ -45,7 +45,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({extended:true}));
+// app.use(bodyParser.urlencoded({extended:true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
