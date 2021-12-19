@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var app = require('../app');
-var debug = require('debug')('deadshoes-admin:server');
+var debug = require('debug')('master-server:server');
 var http = require('http');
 
 /**
