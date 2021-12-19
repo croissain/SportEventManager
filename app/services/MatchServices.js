@@ -17,12 +17,19 @@ exports.findLatestMatchId = async () => {
     }
 }
 
-exports.createMatch = async (match_id, team1_id, team2_id, start_time, start_date) => {
+exports.createMatch = async (match_id, team1_id, team2_id, location, start_time, start_date) => {
     return await models.TranDau.create({
         MaTD: match_id,
         MaDB1: team1_id,
         MaDB2: team2_id,
+        MaSD: location,
         GioBatDau: start_time,
         NgThiDau: start_date,
+    });
+}
+
+exports.findAllMatch = async () => {
+    return await models.TranDau.findAll({
+        raw: true,
     });
 }

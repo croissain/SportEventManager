@@ -1,15 +1,15 @@
-const {models} = require('../models');
+const { models } = require('../models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const bcrypt = require('bcrypt');
 
-exports.findAllUser = async() => {
+exports.findAllUser = async () => {
     return await models.NguoiDangKy.findAll({
         raw: true,
     });
 }
 
-exports.findUserByEmail = async(email) => {
+exports.findUserByEmail = async (email) => {
     return await models.NguoiDangKy.findOne({
         raw: true,
         where: {
@@ -18,7 +18,7 @@ exports.findUserByEmail = async(email) => {
     });
 }
 
-exports.findAllUserEmail = async() => {
+exports.findAllUserEmail = async () => {
     return await models.NguoiDangKy.findAll({
         raw: true,
         attributes: [
@@ -27,7 +27,7 @@ exports.findAllUserEmail = async() => {
     });
 }
 
-exports.isExistEmail = async(email) => {
+exports.isExistEmail = async (email) => {
     const Users = await models.NguoiDangKy.findAndCountAll({
         raw: true,
         where: {
@@ -36,17 +36,21 @@ exports.isExistEmail = async(email) => {
     });
     if (Users.count > 0)
         return true;
-    return  false;
+    return false;
 }
 
-exports.addUser = async(fullName, phone, email, password) => {
+exports.addUser = async (fullName, phone, email, password) => {
     const maxId = await models.NguoiDangKy.max('MaNDK');
-    const id = maxId.substring(3,5);
-    const nextId = "NDK" + (parseInt(id) + 1);
-
+    let id;
+    let nextId;
     const saltRounds = 5;
-    const hashPassword = await bcrypt.hash(password,saltRounds);
-
+    const hashPassword = await bcrypt.hash(password, saltRounds);
+    if (maxId) {
+        id = maxId.substring(3, 5);
+        nextId = "NDK" + (parseInt(id) + 1);
+    } else {
+        nextId = "NDK1";
+    }
     try {
         const user = await models.NguoiDangKy.create(
             {
@@ -54,11 +58,12 @@ exports.addUser = async(fullName, phone, email, password) => {
                 TenNDK: fullName,
                 SDT: phone,
                 Email: email,
-                Password: hashPassword
+                MatKhau: hashPassword
             }
         );
         return user;
     } catch (error) {
         return false;
     }
+
 }

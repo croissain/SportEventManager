@@ -112,7 +112,7 @@ class RegisterController {
                 const user = await PlayerService.addPlayer(playerName, playerNumber, playerPosition, birth, height, weight, teamId);
                 console.log(user);
 
-                res.redirect('/');
+                res.redirect('/register/members');
             }catch (e){
 
             }

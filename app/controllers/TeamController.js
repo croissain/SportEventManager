@@ -12,7 +12,6 @@ class TeamController {
         const {id}  = req.params;
         const teamdetails = await TeamServices.findTeamById(id);
         const teamleader = await TeamServices.findLeaderById(teamdetails.MaNDK);
-        console.log(teamleader);
         const teammembers = await TeamServices.findAllMembers(id);
         
         res.render('team-detail', {

@@ -50,6 +50,8 @@
 const ResultServices = require('../services/ResultServices');
 const TeamServices = require('../services/TeamServices');
 const MatchServices = require('../services/MatchServices');
+
+const location = 'SD01';
 class ScheduleController {
     showSchedule = async (req, res, next) => {
         let matches = await ResultServices.findAllMatch();
@@ -107,7 +109,7 @@ class ScheduleController {
                     let start_date = year + "-" + month + "-" + day;
                     console.log(match_id, team1_id, team2_id, start_time, start_date);
 
-                    await MatchServices.createMatch(match_id, team1_id, team2_id, start_time, start_date);
+                    await MatchServices.createMatch(match_id, team1_id, team2_id, location, start_time, start_date);
                 } catch (err) { console.log(err) }
             })
         }

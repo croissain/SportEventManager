@@ -1,16 +1,16 @@
-const {models} = require('../models');
+const { models } = require('../models');
 const Sequelize = require('sequelize');
 const bcrypt = require("bcrypt");
 const Op = Sequelize.Op;
 const TouramentService = require('../services/TournamentServices');
 
-exports.findAllTeams = async() => {
+exports.findAllTeams = async () => {
     return await models.DoiBong.findAndCountAll({
         raw: true,
     });
 }
 
-exports.findTeamById = async(id) => {
+exports.findTeamById = async (id) => {
     return await models.DoiBong.findOne({
         where: {
             MaDB: id,
@@ -20,7 +20,7 @@ exports.findTeamById = async(id) => {
 }
 
 
-exports.findTeamByLeaderId = async(id) => {
+exports.findTeamByLeaderId = async (id) => {
     return await models.DoiBong.findOne({
         where: {
             MaNDK: id,
@@ -30,7 +30,7 @@ exports.findTeamByLeaderId = async(id) => {
 }
 
 
-exports.findAllMembers = async(id) => {
+exports.findAllMembers = async (id) => {
     return await models.CauThu.findAll({
         where: {
             MaDB: id,
@@ -39,7 +39,7 @@ exports.findAllMembers = async(id) => {
     });
 }
 
-exports.findLeaderById = async(id) => {
+exports.findLeaderById = async (id) => {
     return await models.NguoiDangKy.findOne({
         where: {
             MaNDK: id
@@ -50,12 +50,18 @@ exports.findLeaderById = async(id) => {
 
 exports.addTeam = async (name, tournamentName, userId, color) => {
     const maxId = await models.DoiBong.max('MaDB');
-    const id = maxId.substring(2,4);
-    const nextId = "DB" + (parseInt(id) + 1);
+    let id;
+    let nextId;
 
     const tournament = await TouramentService.findTournamentByName(tournamentName);
     const tournamentId = tournament.MaGD;
 
+    if (maxId) {
+        id = maxId.substring(2, 4);
+        nextId = "DB" + (parseInt(id) + 1);
+    } else {
+        nextId = "DB1";
+    }
     try {
         const team = await models.DoiBong.create(
             {
@@ -70,4 +76,30 @@ exports.addTeam = async (name, tournamentName, userId, color) => {
     } catch (error) {
         return false;
     }
+}
+
+exports.findTopTeams = async () => {
+    return await models.DoiBong.findAll({
+        order: [
+            ['Diem', 'DESC']
+        ],
+        limit: 3,
+        raw: true,
+    });
+}
+
+exports.findWin = async () => {
+    return await models.BanThang.findAll({
+        limit: 5,
+        raw: true,
+    });
+}
+
+exports.findMember = async (id) => {
+    return await models.CauThu.findOne({
+        where: {
+            MaCT: id,
+        },
+        raw: true,
+    });
 }

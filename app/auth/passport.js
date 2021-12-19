@@ -1,10 +1,10 @@
-const {models} = require('../models');
+const { models } = require('../models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const UserServices = require('../services/UserServices')
 
 const passport = require('passport')
-    ,LocalStrategy = require('passport-local').Strategy;
+    , LocalStrategy = require('passport-local').Strategy;
 
 const bcrypt = require('bcrypt');
 
@@ -13,11 +13,10 @@ passport.use(new LocalStrategy(
         usernameField: 'email',
         passwordField: 'password',
     },
-    async function(email, password, done) {
-        console.log(email,password);
+    async function (email, password, done) {
+        console.log(email, password);
 
-        try
-        {
+        try {
 
             const user = await UserServices.findUserByEmail(email);
 
@@ -45,33 +44,33 @@ passport.use(new LocalStrategy(
             if (!user) {
                 return done(null, false, { message: 'Incorrect email.' });
             }
-            const match = await validPassword(user,password);
+            const match = await validPassword(user, password);
             if (!match) {
                 return done(null, false, { message: 'Incorrect password.' });
             }
             return done(null, user);
         }
-        catch (err){
+        catch (err) {
             done(err);
         }
     }
 
 ));
 
-passport.serializeUser(function(user, done) {
-    done(null, {email: user.Email, id: user.MaNDK});
+passport.serializeUser(function (user, done) {
+    done(null, { email: user.Email, id: user.MaNDK });
 });
 
 
-passport.deserializeUser(async function(user, done) {
+passport.deserializeUser(async function (user, done) {
     return done(null, user);
 });
 
 
 
-async function validPassword(user,password){
+async function validPassword(user, password) {
 
-    return bcrypt.compare(password, user.Password);
+    return bcrypt.compare(password, user.MatKhau);
     // return bcrypt.compare(password, user.password);
 }
 

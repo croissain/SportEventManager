@@ -1,18 +1,18 @@
 <!-- Result -->
 <div class="container result-container">
     <div class="filter-tag d-flex flex-wrap align-items-center">
-        <p class="label">Thành viên đội</p>
+        <p class="label">Tìm kiếm trận đấu</p>
 
         <div class="search-bar">
             <input class="form-control search-box" type="search" placeholder="Tìm kiếm..." aria-label="Search">
             <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
         </div>
-        <div class="filter-tag d-flex flex-grow-1">
+        {{!-- <div class="filter-tag d-flex flex-grow-1">
             <p>Lọc: </p>
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    Vị trí
+                    Ngày
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="#">Thủ môn</a></li>
@@ -21,7 +21,7 @@
                     <li><a class="dropdown-item" href="#">Tiền đạo</a></li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- /Filter bar -->
 
@@ -44,7 +44,7 @@
                                 <img src="/img/logo2.png" alt="">
                                 <p>Đội {{this.team2.TenDB}}</p>
                             </div>
-                            <span class="result-tab__team-score team-score-bottom lose">{{this.team2.Diem}}</span>
+                            <span class="result-tab__team-score team-score-bottom win">{{this.team2.Diem}}</span>
                         </div>
                     </div>
                     <span class="devide-line"></span>

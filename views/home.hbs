@@ -27,15 +27,17 @@
             <div class="tab-container mb-5">
                 <p class="start-tab__label label">Các đội dẫn đầu</p>
                 <div class="team-list">
+                    {{#each topTeams}}
                     <div class="team-item">
                         <div class="team-item__logo d-flex justify-content-between align-items-center">
                             <img src="/img/logo1.png" alt="" class="team-item__logo-img">
-                            <p class="team-item__name-text flex-grow-1">ĐH Ngoại ngữ và công nghệ</p>
+                            <p class="team-item__name-text flex-grow-1">{{this.TenDB}}</p>
                             <span class="team-item__detail">
                                 <i class="fas fa-arrow-right"></i>
                             </span>
                         </div>
                     </div>
+                    {{/each}}
                 </div>
             </div>
             <!-- /Teams -->
@@ -44,16 +46,18 @@
             <div class="tab-container mb-5">
                 <p class="start-tab__label label">Các cầu thủ xuất sắc</p>
                 <div class="best-player-list">
+                    {{#each topPlayers}}
                     <div class="best-player-item">
                         <div class="best-player-item__logo d-flex align-items-center">
                             <img src="/img/p1.jpg" alt="" class="best-player-item-img">
-                            <p class="best-player-item__name-text flex-grow-1">Thái Hùng Văn</p>
+                            <p class="best-player-item__name-text flex-grow-1">{{this.TenCT}}</p>
                             <span class="team-item__detail">
                                 <span class="player-score">15</span>
                                 <i class="fab fa-angellist"></i>
                             </span>
                         </div>
                     </div>
+                    {{/each}}
                 </div>
             </div>
             <!-- /Best players -->
@@ -74,7 +78,7 @@
                     <img src="" alt="" class="banner-img">
                     <h2 class="banner-title">Hội Thao </br> Hằng Năm 2021</h2>
                     <p class="label">Hơn 50 cơ sở giáo dục trên toàn quốc tham gia.</p>
-                    <a href="/auth/register">
+                    <a href="/register">
                     <button type="button" class="btn btn-light banner-btn">Tham gia ngay<i
                             class="fas fa-arrow-right"></i></button></a>
                 </div>
@@ -98,7 +102,7 @@
                             Giờ
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">6:30 AM</a></li>
+                            <li><a class="dropdown-item" href="#">7:45 AM</a></li>
                             <li><a class="dropdown-item" href="#">1:00 PM</a></li>
                             <li><a class="dropdown-item" href="#">8:30 PM</a></li>
                         </ul>
@@ -110,8 +114,7 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="#">Nhà văn hóa sinh viên</a></li>
-                            <li><a class="dropdown-item" href="#">Cầu cá lóc</a></li>
-                            <li><a class="dropdown-item" href="#">Đường Trần Hưng Đạo</a></li>
+                            <li><a class="dropdown-item" href="#">Sân vận động Mỹ Đình</a></li>
                         </ul>
                     </div>
                 </div>
@@ -121,32 +124,35 @@
 
             <!-- Matches -->
             <ul class="matches-list">
+                {{#each teamArr}}
                 <li class="match-item d-flex align-items-center mb-3">
                     <div class="match-item__match d-flex">
                         <div class="match-item__match-left d-flex align-items-center">
                             <img src="/img/logo1.png" alt="" class="match__logo match__match-left-logo">
-                            <p class="match-item__match-left-name">ĐH NN&CN VN</p>
+                            <p class="match-item__match-left-name">{{this.team1.TenDB}}</p>
                         </div>
                         <span class="label">vs</span>
                         <div class="match-item__match-right d-flex align-items-center">
                             <img src="/img/logo2.png" alt="" class="match__logo match__match-right-logo">
-                            <p class="match-item__match-right-name">ĐH VH TP.HCM</p>
+                            <p class="match-item__match-right-name">{{this.team2.TenDB}}</p>
                         </div>
                     </div>
                     <div class="match-item__info d-flex flex-wrap flex-grow-1">
                         <div class="match-item__time d-flex">
                             <span><i class="fas fa-clock match-item__icon"></i></span>
-                            <p class="match-item__time-text">6:30 AM</p>
+                            
+                            <p class="match-item__time-text">{{this.match.GioBatDau}}</p>
                         </div>
                         <div class="match-item__location d-flex">
                             <span><i class="fas fa-map-marker-alt match-item__icon"></i></span>
-                            <p class="match-item__location-text align-items-center">KWANGYA</p>
+                            <p class="match-item__location-text align-items-center">{{this.location}}</p>
                         </div>
                     </div>
                     <span class="match-item__detail">
                         <i class="fas fa-arrow-right"></i>
                     </span>
                 </li>
+                {{/each}}
             </ul>
             <!-- /Matches -->
         </div>

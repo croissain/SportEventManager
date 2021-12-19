@@ -7,6 +7,7 @@ var _DoiBong = require("./DoiBong");
 var _GiaiDau = require("./GiaiDau");
 var _LichThiDau = require("./LichThiDau");
 var _NguoiDangKy = require("./NguoiDangKy");
+var _NhanVien = require("./NhanVien");
 var _SanDau = require("./SanDau");
 var _TranDau = require("./TranDau");
 var _VongDau = require("./VongDau");
@@ -20,6 +21,7 @@ function initModels(sequelize) {
   var GiaiDau = _GiaiDau(sequelize, DataTypes);
   var LichThiDau = _LichThiDau(sequelize, DataTypes);
   var NguoiDangKy = _NguoiDangKy(sequelize, DataTypes);
+  var NhanVien = _NhanVien(sequelize, DataTypes);
   var SanDau = _SanDau(sequelize, DataTypes);
   var TranDau = _TranDau(sequelize, DataTypes);
   var VongDau = _VongDau(sequelize, DataTypes);
@@ -40,6 +42,8 @@ function initModels(sequelize) {
   GiaiDau.hasMany(DoiBong, { as: "DoiBongs", foreignKey: "MaGD"});
   DoiBong.belongsTo(NguoiDangKy, { as: "MaNDK_NguoiDangKy", foreignKey: "MaNDK"});
   NguoiDangKy.hasMany(DoiBong, { as: "DoiBongs", foreignKey: "MaNDK"});
+  GiaiDau.belongsTo(NhanVien, { as: "MaNV_NhanVien", foreignKey: "MaNV"});
+  NhanVien.hasMany(GiaiDau, { as: "GiaiDaus", foreignKey: "MaNV"});
   TranDau.belongsTo(SanDau, { as: "MaSD_SanDau", foreignKey: "MaSD"});
   SanDau.hasMany(TranDau, { as: "TranDaus", foreignKey: "MaSD"});
   BanThang.belongsTo(TranDau, { as: "MaTD_TranDau", foreignKey: "MaTD"});
@@ -58,6 +62,7 @@ function initModels(sequelize) {
     GiaiDau,
     LichThiDau,
     NguoiDangKy,
+    NhanVien,
     SanDau,
     TranDau,
     VongDau,

@@ -1,42 +1,38 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('NguoiDangKy', {
-    MaNDK: {
+  return sequelize.define('NhanVien', {
+    MaNV: {
       type: DataTypes.CHAR(5),
       allowNull: false,
       primaryKey: true
     },
-    TenNDK: {
+    TenNV: {
       type: DataTypes.STRING(50),
       allowNull: true
     },
-    SDT: {
+    SDT_NV: {
       type: DataTypes.CHAR(10),
       allowNull: true
     },
-    Email: {
-      type: DataTypes.STRING(40),
-      allowNull: true
-    },
-    AnhNDK: {
+    EmailNV: {
       type: DataTypes.STRING(50),
       allowNull: true
     },
-    MatKhau: {
-      type: DataTypes.STRING,
+    AnhNV: {
+      type: DataTypes.STRING(50),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'NguoiDangKy',
+    tableName: 'NhanVien',
     schema: 'public',
     timestamps: false,
     indexes: [
       {
-        name: "PK__NguoiDan__3A1855900EA330E9",
+        name: "NhanVien_pkey",
         unique: true,
         fields: [
-          { name: "MaNDK" },
+          { name: "MaNV" },
         ]
       },
     ]

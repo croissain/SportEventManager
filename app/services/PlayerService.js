@@ -1,10 +1,10 @@
-const {models} = require('../models');
+const { models } = require('../models');
 const Sequelize = require('sequelize');
 
 
 const Op = Sequelize.Op;
 
-exports.findAllSoccerByTeamId= async(teamId) => {
+exports.findAllSoccerByTeamId = async (teamId) => {
     return await models.CauThu.findAll({
         raw: true,
         where: {
@@ -15,8 +15,15 @@ exports.findAllSoccerByTeamId= async(teamId) => {
 
 exports.addPlayer = async (playerName, playerNumber, playerPosition, birth, height, weight, teamId) => {
     const maxId = await models.CauThu.max('MaCT');
-    const id = maxId.substring(2,4);
-    const nextId = "CT" + (parseInt(id) + 1);
+    let id;
+    let nextId;
+
+    if (maxId) {
+        id = maxId.substring(2, 4);
+        nextId = "CT" + (parseInt(id) + 1);
+    } else {
+        nextId = "CT1";
+    }
 
     try {
         const player = await models.CauThu.create(
