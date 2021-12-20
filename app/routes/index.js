@@ -2,7 +2,6 @@ const tournamentRouter = require('./tournament');
 const teamRouter = require('./team');
 const resultRouter = require('./result');
 const scheduleRouter = require('./schedule');
-// const authRouter = require('./auth');
 // const userRouter = require('./user');
 // const recordRouter = require('./record');
 const authRouter = require('./auth');
@@ -14,7 +13,6 @@ function route(app) {
     app.use('/team', teamRouter);
     app.use('/result', resultRouter);
     app.use('/schedule', scheduleRouter);
-    // app.use('/auth', authRouter);
     // app.use('/user', userRouter);
     // app.use('/record', recordRouter);
     app.use('/', homeRouter);

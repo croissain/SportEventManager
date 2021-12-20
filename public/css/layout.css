@@ -145,14 +145,12 @@
 /* /Avatar */
 
 
-
-
 @media (max-width: 767.98px) {
     .sidebar{
         display: none;
-    }
+    } */
 
-    #wrapper {
+    /* #wrapper {
         position: absolute;
         height: 100%;
         width: 100%;
