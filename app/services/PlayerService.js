@@ -4,11 +4,20 @@ const Sequelize = require('sequelize');
 
 const Op = Sequelize.Op;
 
-exports.findAllSoccerByTeamId = async (teamId) => {
+exports.findAllPlayersByTeamId = async (teamId) => {
     return await models.CauThu.findAll({
         raw: true,
         where: {
             MaDB: teamId
+        }
+    });
+}
+
+exports.findPlayerById = async (id) => {
+    return await models.CauThu.findOne({
+        raw: true,
+        where: {
+            MaCT: id
         }
     });
 }
@@ -34,7 +43,7 @@ exports.addPlayer = async (playerName, playerNumber, playerPosition, birth, heig
                 NgSinhCT: birth,
                 ChieuCaoCT: height,
                 CanNangCT: weight,
-                SoAo: playerNumber,
+                SoAoCT: playerNumber,
                 ViTri: playerPosition
             }
         );
@@ -42,5 +51,12 @@ exports.addPlayer = async (playerName, playerNumber, playerPosition, birth, heig
     } catch (error) {
         return false;
     }
-
 }
+
+// exports.updatePlayer = async (player) => {
+//     return await models.CauThu.update({
+//         where: {
+//             MaCT: player.params.id
+//         }
+//     });
+// }

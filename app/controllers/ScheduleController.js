@@ -56,7 +56,7 @@ class ScheduleController {
     showSchedule = async (req, res, next) => {
         let matches = await ResultServices.findAllMatch();
 
-        res.render('schedule', {
+        res.render('schedule/schedule', {
             matches
         });
     }
@@ -117,6 +117,18 @@ class ScheduleController {
         let matches = await ResultServices.findAllMatch();
 
         res.redirect('back');
+    }
+
+    scheduleEdit = async (req, res, next) => {
+        let match_id = req.params.id;
+        let match = await ResultServices.findMatchById(match_id);
+
+        let teams = await TeamServices.findAllTeams();
+
+        res.render('schedule/schedule-edit', {
+            match,
+            teams
+        });
     }
 }
 

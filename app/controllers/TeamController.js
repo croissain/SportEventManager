@@ -2,7 +2,7 @@ const TeamServices = require('../services/TeamServices');
 class TeamController {
     show = async (req, res, next) => {
         const teams = await TeamServices.findAllTeams();
-        res.render('team', {
+        res.render('team/team', {
             title: 'SEM | Các đội tuyển thi đấu|',
             teams: teams.rows,
         });
@@ -14,7 +14,7 @@ class TeamController {
         const teamleader = await TeamServices.findLeaderById(teamdetails.MaNDK);
         const teammembers = await TeamServices.findAllMembers(id);
         
-        res.render('team-detail', {
+        res.render('team/team-detail', {
             title: 'SEM | Chi tiết đội tuyển thi đấu|',
             teamdetails,
             teamleader,

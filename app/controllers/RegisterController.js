@@ -1,3 +1,4 @@
+const { models } = require('../models');
 
 const UserService = require('../services/UserServices');
 const TournamentService = require('../services/TournamentServices');
@@ -63,9 +64,6 @@ class RegisterController {
 
             }
         }
-
-
-
     }
 
     registerTeam = async (req, res, next) => {
@@ -89,7 +87,7 @@ class RegisterController {
             const userId = req.user.id;
             const team = await TeamService.findTeamByLeaderId(userId);
             const teamId = team.MaDB;
-            const members = await PlayerService.findAllSoccerByTeamId(teamId);
+            const members = await PlayerService.findAllPlayersByTeamId(teamId);
 
             res.render('register-members', {
                 title: 'SEM | Đăng ký thành viên|',
@@ -121,6 +119,23 @@ class RegisterController {
         }catch (e){
 
         }
+    }
+
+    editMember = async (req, res, next) => {
+        const member = await PlayerService.findPlayerById(req.params.id);
+        res.render('members-edit', {
+            title: 'SEM | Sửa thành viên|',
+            member,});
+    }
+
+    updateMember = async (req, res, next) => {
+        console.log(req.body)
+        await models.CauThu.update(req.body, {
+                where: {
+                    MaCT: req.params.id
+                }
+        })
+        res.redirect('/register/members');
     }
 }
 

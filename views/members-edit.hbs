@@ -1,0 +1,98 @@
+<div class="container">
+    <!-- page title area end -->
+    <div class="main-content-inner">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Edit member form-->
+                        <h4 class="header-title">Chỉnh Sửa Thành Viên</h4>
+                        <form method="POST" action="/register/members/{{member.MaCT}}?_method=PUT"
+                            class="needs-validation mt-3" novalidate="">
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="member-name">Tên thành viên</label>
+                                        <input type="text" class="form-control" id="member-name" name="TenCT"
+                                            required="" value="{{member.TenCT}}">
+                                        <div class="invalid-feedback">Xin hãy cung cấp thông tin hợp lệ.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="member-number">Số áo</label>
+                                        <input type="text" class="form-control" id="member-number" name="SoAoCT"
+                                            required="" value="{{member.SoAoCT}}">
+                                        <div class="invalid-feedback">Xin hãy cung cấp thông tin hợp lệ.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="member-birthday">Ngày sinh</label>
+                                        <input type="text" class="form-control" id="member-birthday"
+                                            name="NgSinhCT" aria-describedby="inputGroupPrepend" required=""
+                                            value="{{member.NgSinhCT}}">
+                                        <div class="invalid-feedback">Xin hãy cung cấp thông tin hợp lệ.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="member-status">Chiều cao</label>
+                                        <input type="text" class="form-control" id="member-height" name="ChieuCaoCT"
+                                            aria-describedby="inputGroupPrepend" required=""
+                                            value="{{member.ChieuCaoCT}}">
+                                        <div class="invalid-feedback">Xin hãy cung cấp thông tin hợp lệ.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="member-status">Cân nặng</label>
+                                        <input type="text" class="form-control" id="member-status" name="CanNangCT"
+                                            aria-describedby="inputGroupPrepend" required=""
+                                            value="{{member.CanNangCT}}">
+                                        <div class="invalid-feedback">Xin hãy cung cấp thông tin hợp lệ.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="member-status">Vị trí</label>
+                                        <input type="text" class="form-control" id="member-status" name="ViTri"
+                                            aria-describedby="inputGroupPrepend" required="" value="{{member.ViTri}}">
+                                        <div class="invalid-feedback">Xin hãy cung cấp thông tin hợp lệ.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Cập nhật</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (e) {
+        const btnAddImage = $('.btn-add-image');
+        let index = 1;
+        btnAddImage.on('click', function () {
+            const html = `
+            <div class="form-row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="member-image${index}">Hình ảnh</label>
+                        <input type="text" class="form-control" id="member-image${index}" name="image"
+                            aria-describedby="inputGroupPrepend">
+                    </div>
+                </div> 
+            </div>
+            `;
+            btnAddImage.parent().prepend(html);
+            index++;
+        });
+    })
+</script>
