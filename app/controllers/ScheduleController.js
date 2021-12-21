@@ -94,7 +94,42 @@ class ScheduleController {
                     let team1_id = match[0].MaDB;
                     let team2_id = match[1].MaDB;
 
-                    let lastestMatch = await MatchServices.findLatestMatchId();
+                    // let match_id_count = parseInt(lastestMatch.slice(2)) + 1;
+                    count++;
+                    let match_id = "TD" + count;
+
+                    let start_time = "7:45 AM";
+                    currDate.setDate(currDate.getDate() + 1);
+                    let month = currDate.getUTCMonth() + 1;
+                    let day = currDate.getUTCDate();
+                    let year = currDate.getUTCFullYear();
+
+                    let start_date = year + "-" + month + "-" + day;
+                    console.log(match_id, team1_id, team2_id, start_time, start_date);
+
+                    await MatchServices.createMatch(match_id, team1_id, team2_id, location, start_time, start_date);
+                } catch (err) { console.log(err) }
+            })
+        }
+        else if (teams.count % 2 !== 0) {
+            let pairs = function (arr) {
+                let res = [];
+                let l = arr.length;
+                for (let i = 0; i < l; ++i)
+                    for (let j = i + 1; j < l; ++j)
+                        res.push([arr[i], arr[j]]);
+                return res;
+            }
+
+            let result = pairs(teams.rows);
+
+            let count = 0;
+            let currDate = new Date();
+
+            result.forEach(async (match) => {
+                try {
+                    let team1_id = match[0].MaDB;
+                    let team2_id = match[1].MaDB;
 
                     // let match_id_count = parseInt(lastestMatch.slice(2)) + 1;
                     count++;
