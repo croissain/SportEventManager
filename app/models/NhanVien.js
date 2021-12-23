@@ -21,6 +21,10 @@ module.exports = function(sequelize, DataTypes) {
     AnhNV: {
       type: DataTypes.STRING(50),
       allowNull: true
+    },
+    MatKhauNDK: {
+      type: DataTypes.STRING(200),
+      allowNull: true
     }
   }, {
     sequelize,

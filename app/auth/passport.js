@@ -20,27 +20,6 @@ passport.use(new LocalStrategy(
 
             const user = await UserServices.findUserByEmail(email);
 
-            ////////test/////////
-            // let user = null;
-            // if (email === "ngvana@gmail.com")
-            // {
-            //     user = {
-            //         email: "ngvana@gmail.com",
-            //         password: "$2b$05$PdMtge8ocK4oeq8UY4e6k.V.Z5dvbm8TlAsf7qozkrcqnMG2IrhrW"
-            //         // pass: zxcvbnm123
-            //     }
-            // }
-            // else if (email === "ngvanb@gmail.com")
-            // {
-            //     user = {
-            //         email: "ngvanb@gmail.com",
-            //         password: "$2b$05$JXGuej/HvJau/tUsuskFyecpuMXp2QCSSPARxseiK4dyRpU/L1Wh6"
-            //         // pass: abcxyz123
-            //     }
-            // }
-
-            ////////test/////////
-
             if (!user) {
                 return done(null, false, { message: 'Incorrect email.' });
             }
@@ -70,7 +49,7 @@ passport.deserializeUser(async function (user, done) {
 
 async function validPassword(user, password) {
 
-    return bcrypt.compare(password, user.MatKhau);
+    return bcrypt.compare(password, user.MatKhauNDK);
     // return bcrypt.compare(password, user.password);
 }
 
