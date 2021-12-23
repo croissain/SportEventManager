@@ -121,7 +121,7 @@ p {
 span {
     font-size: 1.2rem !important;
     margin-bottom: 1rem !important;
-    align-self: center;
+    /* align-self: center; */
 }
 
 /* i {

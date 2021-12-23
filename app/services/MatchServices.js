@@ -33,3 +33,12 @@ exports.findAllMatch = async () => {
         raw: true,
     });
 }
+
+exports.findMatchById = async (id) => {
+    return await models.TranDau.findOne({
+        where: {
+            MaTD: id,
+        },
+        raw: true,
+    });
+}

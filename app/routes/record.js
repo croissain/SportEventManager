@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const recordController = require('../controllers/RecordController');
+const RecordController = require('../controllers/RecordController');
 
-router.get('/', recordController.showRecord);
+router.get('/', RecordController.showRecord);
+router.post('/:id/', RecordController.updateRecord);
+router.get('/:id/edit', RecordController.editRecord);
 
 
 module.exports = router;
