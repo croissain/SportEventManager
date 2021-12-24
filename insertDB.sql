@@ -50,3 +50,6 @@ values ('NDK06','Dương Tiêu','0333441411','tieu1@gmail.com','#','$2b$05$edAvk
 
 insert into "NguoiDangKy"("MaNDK","TenNDK","SDT","Email","AnhNDK","MatKhauNDK")
 values ('NDK07','Trương Vô Kỵ','0113222453','ky1@gmail.com','#','$2b$05$ugem5dhb1GxsolnJhd1FxeOIQI71SZV09l9X/vQC6L3D0lHxPwQTO');
+
+
+-----
