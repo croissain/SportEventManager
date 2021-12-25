@@ -16,3 +16,15 @@ exports.findTournamentByName = async(name) => {
         }
     });
 }
+
+exports.findTournamentDeadlineById = async(id) => {
+    return await models.GiaiDau.findOne({
+        raw: true,
+        where: {
+            MaGD: id
+        },
+        attributes: [
+          'HanCuoiDangKy'
+        ]
+    });
+}

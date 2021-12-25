@@ -5,8 +5,13 @@ module.exports = {
     // DB: "dafcp5c6j6t9df",
     HOST: "localhost",
     USER: "postgres",
+<<<<<<< HEAD
     PASSWORD: "1234",
     DB: "SEM2512",
+=======
+    PASSWORD: "3003",
+    DB: "SEM2312",
+>>>>>>> c4e2b6186b6f9ce98f2603eccd94a83befdcb8e2
     SESSION_SECRET: "mysecret",
     dialect: "postgres",
     pool: {

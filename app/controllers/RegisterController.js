@@ -84,20 +84,32 @@ class RegisterController {
 
         try{
 
+
             const userId = req.user.id;
             const team = await TeamService.findTeamByLeaderId(userId);
             const teamId = team.MaDB;
             const members = await PlayerService.findAllPlayersByTeamId(teamId);
 
-            res.render('register-members', {
+            const tournamentId = team.MaGD;
+            const tournament = await TournamentService.findTournamentDeadlineById(tournamentId);
+            const deadline =  new Date(tournament.HanCuoiDangKy);
+            const now = new Date();
+            let isDeadlineTournament = undefined;
+            if (now.getTime() >= deadline.getTime()){
+                isDeadlineTournament = true;
+            }
+
+
+                res.render('register-members', {
                 title: 'SEM | Đăng ký thành viên|',
                 layout: 'main.hbs',
                 members,
-                teamId
+                teamId,
+                isDeadlineTournament
             });
 
         }catch (e){
-
+            return false;
         }
     }
 

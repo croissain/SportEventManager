@@ -39,18 +39,27 @@ exports.isExistEmail = async (email) => {
     return false;
 }
 
-exports.addUser = async (fullName, phone, email, password) => {
+exports.addUser = async (fullName, phone, email, password, avatar) => {
     const maxId = await models.NguoiDangKy.max('MaNDK');
-    let id;
     let nextId;
     const saltRounds = 5;
     const hashPassword = await bcrypt.hash(password, saltRounds);
+
     if (maxId) {
-        id = maxId.substring(3, 5);
-        nextId = "NDK" + (parseInt(id) + 1);
-    } else {
-        nextId = "NDK1";
+        let idNumber = maxId.substring(3, 5);
+        let nextIdInt = (parseInt(idNumber) + 1);
+
+        if(nextIdInt > 0 && nextIdInt < 10){
+            nextId = 'NDK' + '0' + nextIdInt;
+        }
+        else{
+            nextId = 'NDK' + nextIdInt;
+        }
     }
+    else {
+        nextId = "NDK01";
+    }
+
     try {
         const user = await models.NguoiDangKy.create(
             {
@@ -58,7 +67,12 @@ exports.addUser = async (fullName, phone, email, password) => {
                 TenNDK: fullName,
                 SDT: phone,
                 Email: email,
+<<<<<<< HEAD
                 MatKhauNDK: hashPassword
+=======
+                MatKhauNDK: hashPassword,
+                // AnhNDK
+>>>>>>> c4e2b6186b6f9ce98f2603eccd94a83befdcb8e2
             }
         );
         return user;
