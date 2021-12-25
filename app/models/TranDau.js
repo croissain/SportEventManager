@@ -61,10 +61,6 @@ module.exports = function(sequelize, DataTypes) {
     SoBanThangDB2: {
       type: DataTypes.INTEGER,
       allowNull: true
-    },
-    GhiChu: {
-      type: DataTypes.STRING,
-      allowNull: true
     }
   }, {
     sequelize,

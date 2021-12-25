@@ -50,18 +50,29 @@ exports.findLeaderById = async (id) => {
 
 exports.addTeam = async (name, tournamentName, userId, color) => {
     const maxId = await models.DoiBong.max('MaDB');
-    let id;
     let nextId;
+    if (maxId) {
+        let idNumber = maxId.substring(2, 5);
+        let nextIdInt = (parseInt(idNumber) + 1);
+
+        if(nextIdInt > 0 && nextIdInt < 10){
+            nextId = 'DB' + '00' + nextIdInt;
+        }
+        else if(nextIdInt >= 10 && nextIdInt < 100){
+            nextId = 'DB' + '0' + nextIdInt;
+        }
+        else{
+            nextId = 'DB' + nextIdInt;
+        }
+    }
+    else {
+        nextId = "DB001";
+    }
 
     const tournament = await TouramentService.findTournamentByName(tournamentName);
     const tournamentId = tournament.MaGD;
 
-    if (maxId) {
-        id = maxId.substring(2, 4);
-        nextId = "DB" + (parseInt(id) + 1);
-    } else {
-        nextId = "DB1";
-    }
+
     try {
         const team = await models.DoiBong.create(
             {
