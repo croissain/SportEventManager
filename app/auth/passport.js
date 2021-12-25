@@ -70,7 +70,7 @@ passport.deserializeUser(async function (user, done) {
 
 async function validPassword(user, password) {
 
-    return bcrypt.compare(password, user.MatKhau);
+    return bcrypt.compare(password, user.MatKhauNDK);
     // return bcrypt.compare(password, user.password);
 }
 

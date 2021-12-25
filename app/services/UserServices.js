@@ -58,7 +58,7 @@ exports.addUser = async (fullName, phone, email, password) => {
                 TenNDK: fullName,
                 SDT: phone,
                 Email: email,
-                MatKhau: hashPassword
+                MatKhauNDK: hashPassword
             }
         );
         return user;

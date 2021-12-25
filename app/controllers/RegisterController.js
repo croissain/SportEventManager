@@ -129,7 +129,6 @@ class RegisterController {
     }
 
     updateMember = async (req, res, next) => {
-        console.log(req.body)
         await models.CauThu.update(req.body, {
                 where: {
                     MaCT: req.params.id

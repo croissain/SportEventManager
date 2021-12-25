@@ -29,6 +29,10 @@ module.exports = function(sequelize, DataTypes) {
         model: 'NhanVien',
         key: 'MaNV'
       }
+    },
+    HanCuoiDangKy: {
+      type: DataTypes.DATE,
+      allowNull: true
     }
   }, {
     sequelize,
