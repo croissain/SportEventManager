@@ -107,6 +107,7 @@ class RegisterController {
 
         }catch (e){
             return false;
+            res.redirect('/');
         }
     }
 
@@ -130,6 +131,14 @@ class RegisterController {
         }
     }
 
+    deleteMember = async (req, res, next) => {
+        const id = req.body.deleteID;
+        console.log("delete id: ", id);
+        await PlayerService.deletePlayerById(id);
+        res.redirect('/register/members');
+
+    }
+
     editMember = async (req, res, next) => {
         const member = await PlayerService.findPlayerById(req.params.id);
         res.render('members-edit', {
@@ -146,16 +155,16 @@ class RegisterController {
         res.redirect('/register/members');
     }
 
-    deleteMember = async (req, res, next )=> {
-        console.log(req.params.id);
-        await models.CauThu.destroy({
-            where: {
-                MaCT: req.params.id
-            },
-            force: true
-        });
-        res.redirect('back');
-    }
+    // deleteMember = async (req, res, next )=> {
+    //     console.log(req.params.id);
+    //     await models.CauThu.destroy({
+    //         where: {
+    //             MaCT: req.params.id
+    //         },
+    //         force: true
+    //     });
+    //     res.redirect('back');
+    // }
 }
 
 module.exports = new RegisterController;

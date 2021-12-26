@@ -9,8 +9,8 @@ router.get('/team', AuthController.islogin, RegisterController.registerTeamPage)
 router.post('/team', AuthController.islogin, RegisterController.registerTeam);
 router.get('/members', AuthController.islogin, RegisterController.registerMemberPage);
 router.post('/members/add', AuthController.islogin, RegisterController.addMember);
+router.post('/members/delete', AuthController.islogin, RegisterController.deleteMember);
 router.post('/members/:id', AuthController.islogin, RegisterController.updateMember);
-router.delete('/members/:id', AuthController.islogin, RegisterController.deleteMember);
 router.get('/members/:id/edit', AuthController.islogin, RegisterController.editMember);
 
 module.exports = router;

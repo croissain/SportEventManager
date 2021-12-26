@@ -6,15 +6,16 @@
                     <h4>Thành viên trong đội</h4>
                 </div>
                 <input value="{{isDeadlineTournament}}" type="hidden">
-                {{#unless isDeadlineTournament}}
-                <div class="col-sm-6">
-                    <a href="#addMemberModal" class="btn btn-add-member" data-toggle="modal"><i
-                            class="fas fa-plus-circle"></i> <span>Thêm thành viên</span></a>
-                    <a href="#deleteAllMembersModal" class="btn btn-danger btn-delete-members" data-toggle="modal"><i
-                            class="fas fa-minus-circle"></i><span>Xóa tất cả</span></a>
-                </div>
-                {{/unless}}
-                <h5 class="text-white">Đã hết thời hạn đăng ký giải đấu {{tournamentName.TenGD}}, tạm thời không thể thêm thành viên.</h5>
+                {{#if isDeadlineTournament}}
+                    <h5 class="text-white">Đã hết thời hạn đăng ký giải đấu {{tournamentName.TenGD}}, tạm thời không thể thêm thành viên.</h5>
+                {{else}}
+                    <div class="col-sm-6">
+                        <a href="#addMemberModal" class="btn btn-add-member" data-toggle="modal"><i
+                                class="fas fa-plus-circle"></i> <span>Thêm thành viên</span></a>
+                        <a href="#deleteAllMembersModal" class="btn btn-danger btn-delete-members" data-toggle="modal"><i
+                                class="fas fa-minus-circle"></i><span>Xóa tất cả</span></a>
+                    </div>
+                {{/if}}
             </div>
         </div>
         <table class="table table-striped table-hover">
@@ -57,7 +58,10 @@
                     <td>
                         {{#unless ../isDeadlineTournament}}
                         <a href="/register/members/{{MaCT}}/edit" class="edit"><i class="fas fa-pencil-alt"></i></a>
-                        <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i class="fas fa-trash"></i></a>
+                        <a href="#deleteMemberModal" class="delete" data-toggle="modal">
+                            <input type="hidden" value="{{MaCT}}">
+                            <i class="fas fa-trash"></i>
+                        </a>
                         {{/unless}}
                     </td>
                 </tr>
@@ -157,7 +161,8 @@
 <div id="deleteMemberModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form name="delete-member-form" method="POST">
+            <form name="delete-member-form" method="post" action="/register/members/delete">
+                <input type="hidden" name="deleteID" id="deleteID">
                 <div class="modal-header">
                     <h4 class="modal-title">Xóa thành viên này?</h4>
                     <button type="button" class="btn-close" data-dismiss="modal" aria-hidden="true"></button>
@@ -201,4 +206,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="/js/add-member.js"></script>
+
+{{#section 'script'}}
+    <script src="/js/add-member.js"></script>
+    <script src="/js/filterEditDelete.js"></script>
+{{/section}}

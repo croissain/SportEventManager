@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 		const button = $(event.relatedTarget)
 		playerId = button.data('id')
 	})
-	btnDeleteMember.onclick = function () {
-		deleteMemberForm.action = `/members/${playerId}?_method=DELETE`;
-		deleteMemberForm.submit();
-	}
+	// btnDeleteMember.onclick = function () {
+	// 	deleteMemberForm.action = `/members/${playerId}?_method=DELETE`;
+	// 	deleteMemberForm.submit();
+	// }
 })

@@ -10,12 +10,14 @@ exports.findAllUser = async () => {
 }
 
 exports.findUserByEmail = async (email) => {
-    return await models.NguoiDangKy.findOne({
-        raw: true,
-        where: {
-            Email: email
-        }
-    });
+
+    return  await models.NguoiDangKy.findOne({
+            raw: true,
+            where: {
+                Email: email
+            }
+        });
+
 }
 
 exports.findAllUserEmail = async () => {

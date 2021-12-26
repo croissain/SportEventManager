@@ -60,3 +60,18 @@ exports.addPlayer = async (playerName, playerNumber, playerPosition, birth, heig
 //         }
 //     });
 // }
+
+exports.deletePlayerById = async(id) => {
+    try{
+        const deletePlayer = await models.CauThu.destroy({
+            where: {
+                MaCT: id
+            }
+        });
+        return true;
+    }catch (e) {
+        return false;
+    }
+}
+
+

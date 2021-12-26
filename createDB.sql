@@ -159,7 +159,7 @@ CREATE TABLE public."NhanVien" (
     "SDT_NV" character(10),
     "EmailNV" character varying(50),
     "AnhNV" character varying(50),
-    "MatKhauNDK" character varying(200)
+    "MatKhauNV" character varying(200)
 );
 
 
