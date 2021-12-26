@@ -67,12 +67,8 @@ exports.addUser = async (fullName, phone, email, password, avatar) => {
                 TenNDK: fullName,
                 SDT: phone,
                 Email: email,
-<<<<<<< HEAD
-                MatKhauNDK: hashPassword
-=======
                 MatKhauNDK: hashPassword,
                 // AnhNDK
->>>>>>> c4e2b6186b6f9ce98f2603eccd94a83befdcb8e2
             }
         );
         return user;

@@ -33,7 +33,6 @@ passport.use(new LocalStrategy(
             done(err);
         }
     }
-
 ));
 
 passport.serializeUser(function (user, done) {

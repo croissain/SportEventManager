@@ -23,3 +23,19 @@ $(document).ready(function(){
 		}
 	});
 });
+
+document.addEventListener("DOMContentLoaded", function (e) {
+	let playerId;
+	//Variable delete product
+	const btnDeleteMember = document.getElementById("btn-delete-member");
+	const deleteMemberForm = document.forms["delete-member-form"];
+	//Delete product
+	$('#deleteMemberModal').on('show.bs.modal', function (event) {
+		const button = $(event.relatedTarget)
+		playerId = button.data('id')
+	})
+	btnDeleteMember.onclick = function () {
+		deleteMemberForm.action = `/members/${playerId}?_method=DELETE`;
+		deleteMemberForm.submit();
+	}
+})

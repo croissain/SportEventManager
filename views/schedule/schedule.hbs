@@ -4,10 +4,10 @@
         <div class="search-bar flex-grow-1">
             <input class="form-control search-box-schedule" type="search" placeholder="Tìm kiếm..." aria-label="Search">
         </div>
-        <a href="schedule/generate" class="btn btn-success btn-schedule-generator" type="submit">Xếp lịch tự động</a>
+        {{!-- <a href="schedule/generate" class="btn btn-success btn-schedule-generator" type="submit">Xếp lịch tự động</a> --}}
     </div>
-    <p>*Lưu ý: tuyệt đối không chọn lại "Xếp lịch tự động" khi hệ thống đã xếp lịch xong, để tránh lỗi database.</p>
-    <p>Vui lòng xóa hết lịch hiện tại trước khi chọn "Xếp lịch tự động"</p>
+    {{!-- <p>*Lưu ý: tuyệt đối không chọn lại "Xếp lịch tự động" khi hệ thống đã xếp lịch xong, để tránh lỗi database.</p>
+    <p>Vui lòng xóa hết lịch hiện tại trước khi chọn "Xếp lịch tự động"</p> --}}
 
     <div class="container">
         <div class="table-wrapper">
@@ -40,7 +40,7 @@
                         <th>Ngày thi đấu</th>
                         <th>Tỷ số</th>
                         <th>Đội thắng</th>
-                        <th>Hành động</th>
+                        {{!-- <th>Hành động</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -61,12 +61,12 @@
                         <td>{{this.NgThiDau}}</td>
                         <td>{{this.TySo}}</td>
                         <td>{{this.DoiThang}}</td>
-                        <td>
+                        {{!-- <td>
                             <a href="#editMemberModal" class="edit" data-toggle="modal"><i
                                     class="fas fa-pencil-alt"></i></a>
                             <a href="#deleteMemberModal" class="delete" data-toggle="modal"><i
                                     class="fas fa-trash"></i></a>
-                        </td>
+                        </td> --}}
                     </tr>
                     {{/each}}
                 </tbody>

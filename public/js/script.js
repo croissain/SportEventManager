@@ -1,6 +1,6 @@
 // Sidebar
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
+const my$ = document.querySelector.bind(document);
+const my$$ = document.querySelectorAll.bind(document);
 
 const toggleSideMenu = document.querySelector('.sidebar-toggle');
 const toggleBtn = document.querySelector('.toggle-btn');
@@ -23,7 +23,7 @@ console.log(sportTab);
 
 sportTab.forEach(tab => {
     tab.onclick = function () {
-        $(".sport-tab.active").classList.remove("active");
+        my$(".sport-tab.active").classList.remove("active");
 
         line.style.top = this.offsetTop + "px";
 

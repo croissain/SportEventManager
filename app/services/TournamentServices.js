@@ -1,14 +1,14 @@
-const {models} = require('../models');
+const { models } = require('../models');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-exports.findAllTournaments = async() => {
+exports.findAllTournaments = async () => {
     return await models.GiaiDau.findAll({
         raw: true,
     });
 }
 
-exports.findTournamentByName = async(name) => {
+exports.findTournamentByName = async (name) => {
     return await models.GiaiDau.findOne({
         raw: true,
         where: {
@@ -17,14 +17,26 @@ exports.findTournamentByName = async(name) => {
     });
 }
 
-exports.findTournamentDeadlineById = async(id) => {
+exports.findTournamentDeadlineById = async (id) => {
     return await models.GiaiDau.findOne({
         raw: true,
         where: {
             MaGD: id
         },
         attributes: [
-          'HanCuoiDangKy'
+            'HanCuoiDangKy'
+        ]
+    });
+}
+
+exports.findTournamentNameById = async (id) => {
+    return await models.GiaiDau.findOne({
+        raw: true,
+        where: {
+            MaGD: id
+        },
+        attributes: [
+            'TenGD'
         ]
     });
 }

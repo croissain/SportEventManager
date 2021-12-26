@@ -81,10 +81,7 @@ class RegisterController {
     }
 
     registerMemberPage = async (req, res, next) => {
-
         try{
-
-
             const userId = req.user.id;
             const team = await TeamService.findTeamByLeaderId(userId);
             const teamId = team.MaDB;
@@ -92,19 +89,19 @@ class RegisterController {
 
             const tournamentId = team.MaGD;
             const tournament = await TournamentService.findTournamentDeadlineById(tournamentId);
+            const tournamentName = await TournamentService.findTournamentNameById(tournamentId);
             const deadline =  new Date(tournament.HanCuoiDangKy);
             const now = new Date();
             let isDeadlineTournament = undefined;
             if (now.getTime() >= deadline.getTime()){
                 isDeadlineTournament = true;
             }
-
-
                 res.render('register-members', {
                 title: 'SEM | Đăng ký thành viên|',
                 layout: 'main.hbs',
                 members,
                 teamId,
+                tournamentName,
                 isDeadlineTournament
             });
 
@@ -147,6 +144,17 @@ class RegisterController {
                 }
         })
         res.redirect('/register/members');
+    }
+
+    deleteMember = async (req, res, next )=> {
+        console.log(req.params.id);
+        await models.CauThu.destroy({
+            where: {
+                MaCT: req.params.id
+            },
+            force: true
+        });
+        res.redirect('back');
     }
 }
 

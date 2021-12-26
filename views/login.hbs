@@ -7,11 +7,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-md-7">
                     <div class="mb-4">
-                        <h3>Đăng Nhập
-                            <a href="/register">
-                                Đăng ký
-                            </a>
-                        </h3>
+                        <h3>Đăng Nhập</h3>
                         <p class="mb-4">Website quản lý đội tuyển thể thao lớn nhất Việt Nam.</p>
                     </div>
                     <form action="/auth/login" method="post">
@@ -28,20 +24,21 @@
 
                         <div class="form-floating mb-3">
                             <input type="email" name="email" class="form-control" id="floatingInput"
-                                   placeholder="name@example.com">
+                                placeholder="name@example.com">
                             <label for="floatingInput">Tên đăng nhập</label>
                         </div>
                         <div class="form-floating">
                             <input type="password" name="password" class="form-control" id="floatingPassword"
-                                   placeholder="Password">
+                                placeholder="Password">
                             <label for="floatingPassword">Mật khẩu</label>
                         </div>
                         {{#if loginFailed}}
-                            <div class="row">
-                                <div class="col text-center">
-                                    <h4 class="text-danger" style="font-size: 12px; font-style: italic">Sai tên đăng nhập hoặc mật khẩu</h4>
-                                </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <h4 class="text-danger" style="font-size: 12px; font-style: italic">Sai tên đăng nhập
+                                    hoặc mật khẩu</h4>
                             </div>
+                        </div>
                         {{/if}}
 
                         <div class="d-flex mb-5 align-items-center">
@@ -49,7 +46,7 @@
                                 <input type="checkbox" checked="checked" />
                                 <div class="control__indicator"></div>
                             </label>
-                            <span class="ml-auto"><a href="#" class="forgot-pass">Quên mật khẩu?</a></span>
+                            <span class="ml-auto"><a href="/register" class="forgot-pass">Chưa có tài khoản? Đăng ký ngay</a></span>
                         </div>
 
                         <input type="submit" value="Đăng nhập" class="btn btn-block btn-success">
