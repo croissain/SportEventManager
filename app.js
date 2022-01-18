@@ -16,9 +16,9 @@ const session = require('express-session');
 const expressHandlebarsSections = require('express-handlebars-sections');
 
 const app = express();
-dotenv.config({path: '.env'});
+dotenv.config({ path: '.env' });
 
-app.use(favicon(path.join(__dirname,'public','img','favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'img', 'favicon.ico')));
 
 //flatpickr (module to pick date)
 const flatpickr = require("flatpickr");
@@ -35,6 +35,20 @@ app.engine('.hbs', exphbs({
     section: expressHandlebarsSections(),
     sum: function (a, b) {
       return a + b;
+    },
+    when: function(operand_1, operator, operand_2, options) {
+      var operators = {
+        'eq': function (l, r) { return l == r; },
+        'noteq': function (l, r) { return l != r; },
+        'gt': function (l, r) { return Number(l) > Number(r); },
+        'or': function (l, r) { return l || r; },
+        'and': function (l, r) { return l && r; },
+        '%': function (l, r) { return (l % r) === 0; }
+      }
+        , result = operators[operator](operand_1, operand_2);
+
+      if (result) return options.fn(this);
+      else return options.inverse(this);
     }
   }
 }));
@@ -42,7 +56,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(logger('dev'));
+app.use(logger('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // app.use(bodyParser.urlencoded({extended:true}));

@@ -31,26 +31,26 @@
             <div class="col-xl-6 col-md-12">
                 <div class="result-tab d-flex">
                     <div class="result-tab__teams flex-grow-1">
-                        <p>Trận bán kết</p>
+                        <p>Trận đấu</p>
                         <div class="result-tab__team d-flex">
                             <div class="result-tab__team-name mb-3 d-flex flex-grow-1">
                                 <img src="/img/logo1.png" alt="">
                                 <p>Đội {{this.team1.TenDB}}</p>
                             </div>
-                            <span class="result-tab__team-score team-score-top win">{{this.team1.Diem}}</span>
+                            <span class="result-tab__team-score team-score-top win">{{this.match.SoBanThangDB1}}</span>
                         </div>
                         <div class="result-tab__team d-flex">
                             <div class="result-tab__team-name mb-3 d-flex flex-grow-1">
                                 <img src="/img/logo2.png" alt="">
                                 <p>Đội {{this.team2.TenDB}}</p>
                             </div>
-                            <span class="result-tab__team-score team-score-bottom win">{{this.team2.Diem}}</span>
+                            <span class="result-tab__team-score team-score-bottom win">{{this.match.SoBanThangDB2}}</span>
                         </div>
                     </div>
                     <span class="devide-line"></span>
                     <div class="result-tab__record">
                         <p class="mb-0">Kết thúc ngày</p>
-                        <p>12/12/2020</p>
+                        <p>{{this.match.NgThiDau}}</p>
                         <div class="result-tab__record-video">
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/x2H4RBnl3BI"
                                 title="YouTube video player" frameborder="0"

@@ -5,10 +5,10 @@
         <div class="filter-tag d-flex flex-wrap align-items-baseline">
             <p class="label">Tìm kiếm đội thi đấu</p>
 
-            <div class="search-bar">
-                <input class="form-control search-box" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+            <form action="" method="POST" class="search-bar">
+                <input class="form-control search-box" type="search" placeholder="Tìm kiếm..." aria-label="Search" name="term">
                 <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-            </div>
+            </form>
             {{!-- <div class="filter-tag d-flex align-items-baseline">
                 <p>Lọc: </p>
                 <div class="dropdown">
@@ -84,7 +84,11 @@
             <!-- Teams -->
 
             <div class="col-xl-9">
-                <p class="label">Các đội trong giải A</p>
+                {{#if tournament}}
+                <p class="label">Các đội trong giải {{tournament.TenGD}}</p>
+                {{else}}
+                <p class="label">Tất cả các đội</p>
+                {{/if}}
                 {{#each teams}}
                 <div class="team-tag mb-3 d-flex align-items-center">
                     <h4 class="me-5">{{sum @index 1}}</h4>
@@ -95,7 +99,7 @@
                         <p class="subtitle flex-grow-1 team-tag__team-name">{{this.TenDB}}</p>
                         <div class="d-flex">
                             <p class="label team-tag__memnum me-5">Số thành viên: {{this.SoThanhVien}}</p>
-                            <p class="label team-tag__score">Điểm: {{this.Diem}}</p>
+                            <p class="label team-tag__score">Màu áo: {{this.MauAo}}</p>
                         </div>
                     </div>
                     <a class="team-tag__moreinfo" href="/team/{{this.MaDB}}">

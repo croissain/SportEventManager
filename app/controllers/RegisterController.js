@@ -117,6 +117,7 @@ class RegisterController {
             const {playerName, playerNumber, playerPosition, birth, height, weight, teamId} = req.body;
             try{
                 const user = await PlayerService.addPlayer(playerName, playerNumber, playerPosition, birth, height, weight, teamId);
+                await PlayerService.sumMembers(teamId);
                 console.log(user);
 
                 res.redirect('/register/members');

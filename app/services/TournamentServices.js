@@ -17,6 +17,17 @@ exports.findTournamentByName = async (name) => {
     });
 }
 
+exports.findTournamentsByName = async (name) => {
+    return await models.GiaiDau.findAll({
+        raw: true,
+        where: {
+            TenGD: {
+                [Op.iLike]: `%${name}%`
+            }
+        }
+    });
+}
+
 exports.findTournamentDeadlineById = async (id) => {
     return await models.GiaiDau.findOne({
         raw: true,

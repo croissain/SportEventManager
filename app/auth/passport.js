@@ -44,8 +44,6 @@ passport.deserializeUser(async function (user, done) {
     return done(null, user);
 });
 
-
-
 async function validPassword(user, password) {
 
     return bcrypt.compare(password, user.MatKhauNDK);

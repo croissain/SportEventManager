@@ -19,6 +19,16 @@ exports.findTeamById = async (id) => {
     });
 }
 
+exports.findTeamsByName = async (name) => {
+    return await models.DoiBong.findAll({
+        raw: true,
+        where: {
+            TenDB: {
+                [Op.iLike]: `%${name}%`
+            }
+        }
+    });
+}
 
 exports.findTeamByLeaderId = async (id) => {
     return await models.DoiBong.findOne({
@@ -39,10 +49,31 @@ exports.findAllMembers = async (id) => {
     });
 }
 
+exports.findMembersByName = async (id, name) => {
+    return await models.CauThu.findAll({
+        where: {
+            MaDB: id,
+            TenCT: {
+                [Op.iLike]: `%${name}%`
+            }
+        },
+        raw: true,
+    });
+}
+
 exports.findLeaderById = async (id) => {
     return await models.NguoiDangKy.findOne({
         where: {
             MaNDK: id
+        },
+        raw: true,
+    });
+}
+
+exports.findAllTeamsByTournamentId = async (tournamentId) => {
+    return await models.DoiBong.findAll({
+        where: {
+            MaGD: tournamentId,
         },
         raw: true,
     });
@@ -113,4 +144,25 @@ exports.findMember = async (id) => {
         },
         raw: true,
     });
+}
+
+exports.countTotalTeamsInATournament = async (tournamentId) => {
+    return await models.DoiBong.count({
+        where: {
+            MaGD: tournamentId
+        }
+    });
+}
+
+exports.updateMembersNum = async (teamId, num) => {
+    return await models.DoiBong.update(
+        {
+            SoThanhVien: num
+        },
+        {
+            where: {
+                MaDB: teamId
+            }
+        }
+    );
 }

@@ -76,7 +76,7 @@
                 <span class="bg-deco"></span>
                 <div class="banner-content">
                     <img src="" alt="" class="banner-img">
-                    <h2 class="banner-title">Hội Thao </br> Hằng Năm 2021</h2>
+                    <h2 class="banner-title">Hội Thao </br> Hằng Năm 2022</h2>
                     <p class="label">Hơn 50 cơ sở giáo dục trên toàn quốc tham gia.</p>
                     {{#if user}}
                         <a href="/register/team">
@@ -98,10 +98,10 @@
             <div class="filter-tag d-flex flex-wrap align-items-center">
                 <p class="label">Trận đấu gần đây</p>
 
-                <div class="search-bar">
-                    <input class="form-control search-box" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+                <form method="POST" class="search-bar">
+                    <input class="form-control search-box" type="search" placeholder="Tìm kiếm..." aria-label="Search" name="term">
                     <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                </div>
+                </form>
                 <div class="filter-tag d-flex flex-grow-1">
                     <p>Lọc: </p>
                     <div class="dropdown">

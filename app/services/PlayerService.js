@@ -22,6 +22,14 @@ exports.findPlayerById = async (id) => {
     });
 }
 
+exports.sumMembers = async (teamId) => {
+    return await models.CauThu.count({
+        where: {
+            MaDB: teamId
+        }
+    });
+}
+
 exports.addPlayer = async (playerName, playerNumber, playerPosition, birth, height, weight, teamId) => {
     const maxId = await models.CauThu.max('MaCT');
     let id;
